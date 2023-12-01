@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python User’s Guide - Integrated Development Environments</title>
+<title>SWMM-Dash-MLFlow - Development Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Python User’s Guide</span>
+    <span class="navbar-title">SWMM-Dash-MLFlow</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -92,55 +92,35 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Tools</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Design</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design">    
         <li>
-    <a class="dropdown-item" href="../tools/overview.html" rel="" target="">
- <span class="dropdown-text">Overview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/integrated-dev-envs.html" rel="" target="">
- <span class="dropdown-text">Integrated Development Environments</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/pkg-env-manager.html" rel="" target="">
- <span class="dropdown-text">Package and Environment Managers</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/version-control.html" rel="" target="">
- <span class="dropdown-text">Version Control</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/documentation.html" rel="" target="">
- <span class="dropdown-text">Documentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/containers.html" rel="" target="">
- <span class="dropdown-text">Containerization</span></a>
+    <a class="dropdown-item" href="../design/overview.html" rel="" target="">
+ <span class="dropdown-text">Design Overview</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Tutorials</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-implementation" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Implementation</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-implementation">    
         <li>
-    <a class="dropdown-item" href="../tutorials/vscode-primer.html" rel="" target="">
- <span class="dropdown-text">VS Code Primer</span></a>
+    <a class="dropdown-item" href="../implement/overview.html" rel="" target="">
+ <span class="dropdown-text">Implementation Overview</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-standards" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Standards</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-usage" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Usage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-standards">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-usage">    
         <li>
-    <a class="dropdown-item" href="../standards/overview.html" rel="" target="">
- <span class="dropdown-text">Overview</span></a>
+    <a class="dropdown-item" href="../use/overview.html" rel="" target="">
+ <span class="dropdown-text">Usage Overview</span></a>
   </li>  
     </ul>
   </li>
@@ -166,17 +146,20 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vs-code" id="toc-vs-code" class="nav-link active" data-scroll-target="#vs-code">VS Code</a></li>
-  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others">Others</a></li>
+  <li><a href="#integrated-development-environments" id="toc-integrated-development-environments" class="nav-link active" data-scroll-target="#integrated-development-environments">Integrated Development Environments</a></li>
+  <li><a href="#package-and-environment-managemers" id="toc-package-and-environment-managemers" class="nav-link" data-scroll-target="#package-and-environment-managemers">Package and Environment Managemers</a></li>
+  <li><a href="#version-control-systems" id="toc-version-control-systems" class="nav-link" data-scroll-target="#version-control-systems">Version Control Systems</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  <li><a href="#containerization" id="toc-containerization" class="nav-link" data-scroll-target="#containerization">Containerization</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/gcoyle83/python-starter-template/issues" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div class="action-links"><p><a href="https://github.com/gcoyle83/swmm-dash-mlflow/issues" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Integrated Development Environments</h1>
+<h1 class="title">Development Tools</h1>
 </div>
 
 
@@ -191,15 +174,26 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Integrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The <em>recommended</em> IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder.</p>
-<section id="vs-code" class="level3">
-<h3 class="anchored" data-anchor-id="vs-code">VS Code</h3>
-<p>Visual Studio Code (VS Code) is a free, multi-platform, multi-language IDE developed by Microsoft and is popularly used by software engineers for developing solutions in numerous languages. The VS Code extensions ecosystem is large and active - there are extensions for linting, formatting, source control, containerization, cloud computing services and much (much) more.</p>
-<p>Ready to give it a try? See our <a href="../tutorials/vscode-primer.html">primer on installing and setting up VS Code</a> to effectively collaborate on Python development projects.</p>
+<p>There are many useful Python development tools, and we do not pretend to know them all. This section of the site offers guidance on which tools to use to get started and is based purely on our present abilities to provide guidance rather than any claims of one tool being better than any other. The tools identified and summarized here are selected based on current usage and willingness of a team member to share their knowledge here. If you like a tool that is not included in this section, please contribute content to improve the coverage here.</p>
+<section id="integrated-development-environments" class="level2">
+<h2 class="anchored" data-anchor-id="integrated-development-environments"><a href="integrated-dev-envs.qmd">Integrated Development Environments</a></h2>
+<p>Integrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The <em>recommended</em> IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder. <a href="integrated-dev-envs.qmd">Read on…</a></p>
 </section>
-<section id="others" class="level3">
-<h3 class="anchored" data-anchor-id="others">Others</h3>
-<p>Feel free to add short descriptions of your favorite IDE and link to a primer page here.</p>
+<section id="package-and-environment-managemers" class="level2">
+<h2 class="anchored" data-anchor-id="package-and-environment-managemers"><a href="pkg-env-manager.qmd">Package and Environment Managemers</a></h2>
+<p>Python packages are distributed by a wide number of individuals and organizations, with just-as-widely varying degrees of sophistication. Package and environment managers (PEMs) are tools that seek to help users of these Python packages resolve the inevitable web of dependencies that emerge between various packages (<em>dependency hell</em>). <a href="pkg-env-manager.qmd">Read on…</a></p>
+</section>
+<section id="version-control-systems" class="level2">
+<h2 class="anchored" data-anchor-id="version-control-systems"><a href="version-control.qmd">Version Control Systems</a></h2>
+<p>A Version Control System (VCS) is a database system for tracking changes to a filesystem over time. There are many types of VCSs that have been developed over the years. There is an “interesting” <a href="">history of version control</a> available from Git for those interested in exploring the weeds of yesteryear. For others, it’s probably sufficient to point to the currently available systems and provide a brief summary of each. <a href="version-control.qmd">Read on…</a></p>
+</section>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation"><a href="documentation.qmd">Documentation</a></h2>
+<p>Documentation is a vital part of any Python project. See the <a href="documentation.qmd">documentation tools page</a> for a review of using some recommended tools for documenting your projects.</p>
+</section>
+<section id="containerization" class="level2">
+<h2 class="anchored" data-anchor-id="containerization"><a href="containers.qmd">Containerization</a></h2>
+<p>Package and environment management is necessary but insufficient to ensure reproducible projects. Environments run on operating systems, which run on real or virtual machines. Containerization is a technology developed to support reproducibility and virtualization (at scale) of operating systems. <a href="containers.qmd">Read on…</a></p>
 
 
 </section>
@@ -556,14 +550,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2023, Python User’s Group</div>   
+    <div class="nav-footer-left">Copyright 2023, Brown and Caldwell</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/gcoyle83/python-starter-template">
+    <a class="nav-link" href="https://github.com/gcoyle83/swmm-dash-mlflow">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

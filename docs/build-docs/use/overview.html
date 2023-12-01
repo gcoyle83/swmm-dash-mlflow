@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Python User’s Guide - Python Coding Standards</title>
+<title>SWMM-Dash-MLFlow - Getting Started with VS Code</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Python User’s Guide</span>
+    <span class="navbar-title">SWMM-Dash-MLFlow</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -92,55 +92,35 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Tools</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-design" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Design</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tools">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-design">    
         <li>
-    <a class="dropdown-item" href="../tools/overview.html" rel="" target="">
- <span class="dropdown-text">Overview</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/integrated-dev-envs.html" rel="" target="">
- <span class="dropdown-text">Integrated Development Environments</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/pkg-env-manager.html" rel="" target="">
- <span class="dropdown-text">Package and Environment Managers</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/version-control.html" rel="" target="">
- <span class="dropdown-text">Version Control</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/documentation.html" rel="" target="">
- <span class="dropdown-text">Documentation</span></a>
-  </li>  
-        <li>
-    <a class="dropdown-item" href="../tools/containers.html" rel="" target="">
- <span class="dropdown-text">Containerization</span></a>
+    <a class="dropdown-item" href="../design/overview.html" rel="" target="">
+ <span class="dropdown-text">Design Overview</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-tutorials" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Tutorials</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-implementation" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Implementation</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-tutorials">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-implementation">    
         <li>
-    <a class="dropdown-item" href="../tutorials/vscode-primer.html" rel="" target="">
- <span class="dropdown-text">VS Code Primer</span></a>
+    <a class="dropdown-item" href="../implement/overview.html" rel="" target="">
+ <span class="dropdown-text">Implementation Overview</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-standards" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
- <span class="menu-text">Standards</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-usage" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Usage</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-standards">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-usage">    
         <li>
-    <a class="dropdown-item" href="../standards/overview.html" rel="" target="">
- <span class="dropdown-text">Overview</span></a>
+    <a class="dropdown-item" href="../use/overview.html" rel="" target="">
+ <span class="dropdown-text">Usage Overview</span></a>
   </li>  
     </ul>
   </li>
@@ -166,16 +146,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#subsection" id="toc-subsection" class="nav-link active" data-scroll-target="#subsection">Subsection</a></li>
+  <li><a href="#install-vs-code" id="toc-install-vs-code" class="nav-link active" data-scroll-target="#install-vs-code">Install VS Code</a></li>
+  <li><a href="#install-extensions" id="toc-install-extensions" class="nav-link" data-scroll-target="#install-extensions">Install Extensions</a></li>
+  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">Basic Usage</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/gcoyle83/python-starter-template/issues" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div class="action-links"><p><a href="https://github.com/gcoyle83/swmm-dash-mlflow/issues" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Python Coding Standards</h1>
+<h1 class="title">Getting Started with VS Code</h1>
 </div>
 
 
@@ -190,9 +172,59 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Intro to standards…</p>
-<section id="subsection" class="level2">
-<h2 class="anchored" data-anchor-id="subsection">Subsection</h2>
+<p>This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.</p>
+<p>The primary steps covered here are:</p>
+<ul>
+<li>Install VS Code</li>
+<li>Install Python extension for VS Code</li>
+<li>Basic usage instructions for a template Python project</li>
+</ul>
+<section id="install-vs-code" class="level2">
+<h2 class="anchored" data-anchor-id="install-vs-code">Install VS Code</h2>
+<p>VS Code can be installed simply from the product’s main <a href="https://code.visualstudio.com/download">download page</a>. Simply select the operating system for your machine and run the installer: - Accept the license agreement; - Accept default options for install destination; - Accept default Start Menu location; - Under “Select Additional Tasks”, keep the default selections <em>and also</em> select the two options to add “Open with Code” actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;</p>
+</section>
+<section id="install-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="install-extensions">Install Extensions</h2>
+<p>Once VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (<code>Ctrl+Shift+X</code>) instead. Use the search bar to find the desired extensions:</p>
+<ul>
+<li>Python - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features.</li>
+</ul>
+</section>
+<section id="basic-usage" class="level2">
+<h2 class="anchored" data-anchor-id="basic-usage">Basic Usage</h2>
+<p>In this section we’ll walk through some basic usage steps, setting up some additional features along the way.</p>
+<ul>
+<li>Once VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated.</li>
+<li>Clone the Python project starter template repo from GitHub:
+<ul>
+<li>Use the <code>Ctrl+Shift+P</code> shortcut to activate the command pallette (use <code>Esc</code> to exit it as needed)</li>
+<li>Search the pallette for ‘Terminal’ and select the <code>Terminal: Create New Terminal</code> option that appears</li>
+<li>Note that the terminal “opens” as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired</li>
+<li><code>cd</code> and/or <code>mkdir</code> to a desired directory</li>
+<li>Enter the command <code>git clone git@github.com:gcoyle83/quarto-example-site.git</code>, and enter authentication information as required (add SSH keygen instructions)</li>
+</ul></li>
+<li>When you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the “Open with VS Code” action accessible from the right-click context menu in Windows Explorer.
+<ul>
+<li>Navigate to the repo location in Windows Explorer</li>
+<li>Right click on the repo directory</li>
+<li>Select “Open with Code”, and note the root directory</li>
+<li>In VS Code, select the source control blade (or use the strange <code>Ctrl+Shift+G</code> followed with <code>g</code> shortcut)</li>
+<li>Expand the Branches section of the blade and note that one branch (<code>main</code>) is shown</li>
+<li>Expand the Remotes section of the blade and then expand the <code>origin</code> to show all available branches</li>
+<li>Hover over the website branch and note the several icons that appear on the right side</li>
+<li>Hover over the first of these icons and note that it says “Switch to branch” - this is the same as the <code>git switch</code> command, but it also fetches it if it’s not currently in the local</li>
+<li>Select the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)</li>
+<li>Observe that the branch is added to the Branches blade, and has a check-mark next to it</li>
+<li>Hover over the check-mark; observe that the popup information is the same as would be returned by <code>git status</code> on the command line</li>
+<li>Return to the Explorer blade (<code>Ctrl+Shift+E</code>), and note that the files shown now reflect the Quarto website content</li>
+<li>Open the <code>about.qmd</code> file, and add your name to the list in the Development Group Members section of the page, then save your changes (<code>Ctrl+S</code>)</li>
+<li>Return to the source control blade (<code>Ctrl+Shift+G</code> + <code>g</code>)</li>
+<li>Expand the source control section, and note that there is a change pending</li>
+<li>Hover over the “Changes” list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the “Stage All Changes” button to stage your changes</li>
+<li>Type a useful commit message and press the green Commit button</li>
+<li>Click the green Sync Changes button to sync with the remote GitHub repo</li>
+</ul></li>
+</ul>
 
 
 </section>
@@ -549,14 +581,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Copyright 2023, Python User’s Group</div>   
+    <div class="nav-footer-left">Copyright 2023, Brown and Caldwell</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/gcoyle83/python-starter-template">
+    <a class="nav-link" href="https://github.com/gcoyle83/swmm-dash-mlflow">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

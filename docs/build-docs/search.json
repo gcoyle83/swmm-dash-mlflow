@@ -1,196 +1,42 @@
 [
   {
-    "objectID": "standards/overview.html",
-    "href": "standards/overview.html",
-    "title": "Python Coding Standards",
-    "section": "",
-    "text": "Intro to standards…"
-  },
-  {
-    "objectID": "standards/overview.html#subsection",
-    "href": "standards/overview.html#subsection",
-    "title": "Python Coding Standards",
-    "section": "Subsection",
-    "text": "Subsection"
-  },
-  {
-    "objectID": "tutorials/vscode-primer.html",
-    "href": "tutorials/vscode-primer.html",
-    "title": "Getting Started with VS Code",
-    "section": "",
-    "text": "This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.\nThe primary steps covered here are:"
-  },
-  {
-    "objectID": "tutorials/vscode-primer.html#install-vs-code",
-    "href": "tutorials/vscode-primer.html#install-vs-code",
-    "title": "Getting Started with VS Code",
-    "section": "Install VS Code",
-    "text": "Install VS Code\nVS Code can be installed simply from the product’s main download page. Simply select the operating system for your machine and run the installer: - Accept the license agreement; - Accept default options for install destination; - Accept default Start Menu location; - Under “Select Additional Tasks”, keep the default selections and also select the two options to add “Open with Code” actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;"
-  },
-  {
-    "objectID": "tutorials/vscode-primer.html#install-extensions",
-    "href": "tutorials/vscode-primer.html#install-extensions",
-    "title": "Getting Started with VS Code",
-    "section": "Install Extensions",
-    "text": "Install Extensions\nOnce VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (Ctrl+Shift+X) instead. Use the search bar to find the desired extensions:\n\nPython - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features."
-  },
-  {
-    "objectID": "tutorials/vscode-primer.html#basic-usage",
-    "href": "tutorials/vscode-primer.html#basic-usage",
-    "title": "Getting Started with VS Code",
-    "section": "Basic Usage",
-    "text": "Basic Usage\nIn this section we’ll walk through some basic usage steps, setting up some additional features along the way.\n\nOnce VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated.\nClone the Python project starter template repo from GitHub:\n\nUse the Ctrl+Shift+P shortcut to activate the command pallette (use Esc to exit it as needed)\nSearch the pallette for ‘Terminal’ and select the Terminal: Create New Terminal option that appears\nNote that the terminal “opens” as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired\ncd and/or mkdir to a desired directory\nEnter the command git clone git@github.com:gcoyle83/quarto-example-site.git, and enter authentication information as required (add SSH keygen instructions)\n\nWhen you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the “Open with VS Code” action accessible from the right-click context menu in Windows Explorer.\n\nNavigate to the repo location in Windows Explorer\nRight click on the repo directory\nSelect “Open with Code”, and note the root directory\nIn VS Code, select the source control blade (or use the strange Ctrl+Shift+G followed with g shortcut)\nExpand the Branches section of the blade and note that one branch (main) is shown\nExpand the Remotes section of the blade and then expand the origin to show all available branches\nHover over the website branch and note the several icons that appear on the right side\nHover over the first of these icons and note that it says “Switch to branch” - this is the same as the git switch command, but it also fetches it if it’s not currently in the local\nSelect the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)\nObserve that the branch is added to the Branches blade, and has a check-mark next to it\nHover over the check-mark; observe that the popup information is the same as would be returned by git status on the command line\nReturn to the Explorer blade (Ctrl+Shift+E), and note that the files shown now reflect the Quarto website content\nOpen the about.qmd file, and add your name to the list in the Development Group Members section of the page, then save your changes (Ctrl+S)\nReturn to the source control blade (Ctrl+Shift+G + g)\nExpand the source control section, and note that there is a change pending\nHover over the “Changes” list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the “Stage All Changes” button to stage your changes\nType a useful commit message and press the green Commit button\nClick the green Sync Changes button to sync with the remote GitHub repo"
-  },
-  {
-    "objectID": "tools/containers.html",
-    "href": "tools/containers.html",
-    "title": "Containerization",
-    "section": "",
-    "text": "Package and environment management is necessary but insufficient to ensure reproducible projects. Environments run on operating systems, which run on real or virtual machines. Containerization is a technology developed to support reproducibility and virtualization (at scale) of operating systems. The leading tools for containerization of Python (or, really, any development) projects are Docker and Kubernetes."
-  },
-  {
-    "objectID": "tools/containers.html#docker",
-    "href": "tools/containers.html#docker",
-    "title": "Containerization",
-    "section": "Docker",
-    "text": "Docker\nis…"
-  },
-  {
-    "objectID": "tools/containers.html#kubernetes",
-    "href": "tools/containers.html#kubernetes",
-    "title": "Containerization",
-    "section": "Kubernetes",
-    "text": "Kubernetes\nis…"
-  },
-  {
-    "objectID": "tools/containers.html#azure-container-instances",
-    "href": "tools/containers.html#azure-container-instances",
-    "title": "Containerization",
-    "section": "Azure Container Instances",
-    "text": "Azure Container Instances\nis…"
-  },
-  {
-    "objectID": "tools/containers.html#helm",
-    "href": "tools/containers.html#helm",
-    "title": "Containerization",
-    "section": "Helm",
-    "text": "Helm\nis…"
-  },
-  {
-    "objectID": "tools/integrated-dev-envs.html",
-    "href": "tools/integrated-dev-envs.html",
-    "title": "Integrated Development Environments",
-    "section": "",
-    "text": "Integrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The recommended IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder.\n\nVS Code\nVisual Studio Code (VS Code) is a free, multi-platform, multi-language IDE developed by Microsoft and is popularly used by software engineers for developing solutions in numerous languages. The VS Code extensions ecosystem is large and active - there are extensions for linting, formatting, source control, containerization, cloud computing services and much (much) more.\nReady to give it a try? See our primer on installing and setting up VS Code to effectively collaborate on Python development projects.\n\n\nOthers\nFeel free to add short descriptions of your favorite IDE and link to a primer page here.\n\n\n\n\n Back to top"
-  },
-  {
-    "objectID": "tools/pkg-env-manager.html",
-    "href": "tools/pkg-env-manager.html",
-    "title": "Package and Environment Managers",
-    "section": "",
-    "text": "Python packages are distributed by a wide number of individuals and organizations, with just-as-widely varying degrees of sophistication. Package and environment managers (PEMs) are tools that seek to help users of these Python packages resolve the inevitable web of dependencies that emerge between various packages (dependency hell)."
-  },
-  {
-    "objectID": "tools/pkg-env-manager.html#python-package-index",
-    "href": "tools/pkg-env-manager.html#python-package-index",
-    "title": "Package and Environment Managers",
-    "section": "Python Package Index",
-    "text": "Python Package Index\nThe foundation…"
-  },
-  {
-    "objectID": "tools/pkg-env-manager.html#venv",
-    "href": "tools/pkg-env-manager.html#venv",
-    "title": "Package and Environment Managers",
-    "section": "Venv",
-    "text": "Venv\nvenv is a core module in Python, and the us the official environment manager of Python. It enables creating “virtual environments” that each have their own set of Python packages installed in their site directories. A venv is created on top of an existing Python installation (known as the ‘base’ Python). A venv may be created from a requirements.txt file that specifies the required packages and their versions."
-  },
-  {
-    "objectID": "tools/pkg-env-manager.html#anaconda",
-    "href": "tools/pkg-env-manager.html#anaconda",
-    "title": "Package and Environment Managers",
-    "section": "Anaconda",
-    "text": "Anaconda\nAnaconda is a third-party distribution of Python that includes its own package management system, IDE, and many more features. This is often where newer (2015 on, say) Python users first get onboarded, so it is quite popular.\n\nMiniconda\nA lightweight variant worth knowing about…"
-  },
-  {
-    "objectID": "tools/documentation.html",
-    "href": "tools/documentation.html",
-    "title": "Documentation",
-    "section": "",
-    "text": "Documentation for this template is developed using Markdown and Quarto (an extension of Markdown). The template is set up to make the documentation build process as simple as possible."
-  },
-  {
-    "objectID": "tools/documentation.html#authoredit-documentation",
-    "href": "tools/documentation.html#authoredit-documentation",
-    "title": "Documentation",
-    "section": "Author/Edit Documentation",
-    "text": "Author/Edit Documentation\nTo create new documentation, or edit existing docs, simply open the content in the docs directory and create new .md or .qmd files as needed. For specific details about authoring these files, it is recommended to start with Quarto’s Markdown Basics page.\n\n\n\n\n\n\nWarning\n\n\n\nThe build-docs folder in the docs directory is the automatically rendered site that is seen on GitHub Pages. Do not edit files in this directory.\n\n\nThe current template setup uses GitHub Actions to build a website automatically from the docs folder. The current settings override some of the usual defaults to enable using Quarto’s build process instead of the standard (to GitHub) Jekyll build process. This greatly simplifies many things about rendering documentation to HTML and websites, as well as making it easier to render into books or Word documents later; this process is now fully automated.\n\nThe first step is, of course, to make whatever edits are desired in the docs folder.\nNow just commit and push your changes to GitHub, and the automated website build process will take care of the rest"
-  },
-  {
-    "objectID": "tools/documentation.html#quarto",
-    "href": "tools/documentation.html#quarto",
-    "title": "Documentation",
-    "section": "Quarto",
-    "text": "Quarto\nThe current setup no longer requires installation of Quarto on your local machine. However, Quarto is still a useful tool on its own. To install, visit the Quarto install page and follow instructions for your operating system. A sub-page will be created soon for more information."
-  },
-  {
-    "objectID": "tools/version-control.html",
-    "href": "tools/version-control.html",
-    "title": "Version Control Systems",
-    "section": "",
-    "text": "A Version Control System (VCS) is a database system for tracking changes to filesystem over time. There are many types of VCSs that have been developed over the years. There is an “interesting” history of version control available from Git for those interested in exploring the weeds of yesteryear. For others, it’s probably sufficient to point to the currently available systems and provide a brief summary of each. It is worth noting, however, that Git is the preferred choice of this group, as evident by the fact that this repo is hosted on GitHub."
-  },
-  {
-    "objectID": "tools/version-control.html#git",
-    "href": "tools/version-control.html#git",
-    "title": "Version Control Systems",
-    "section": "Git",
-    "text": "Git\nMore to come …"
-  },
-  {
-    "objectID": "tools/version-control.html#bitbucket",
-    "href": "tools/version-control.html#bitbucket",
-    "title": "Version Control Systems",
-    "section": "Bitbucket",
-    "text": "Bitbucket\nMore to come …"
-  },
-  {
-    "objectID": "tools/overview.html",
-    "href": "tools/overview.html",
+    "objectID": "implement/overview.html",
+    "href": "implement/overview.html",
     "title": "Development Tools",
     "section": "",
     "text": "There are many useful Python development tools, and we do not pretend to know them all. This section of the site offers guidance on which tools to use to get started and is based purely on our present abilities to provide guidance rather than any claims of one tool being better than any other. The tools identified and summarized here are selected based on current usage and willingness of a team member to share their knowledge here. If you like a tool that is not included in this section, please contribute content to improve the coverage here."
   },
   {
-    "objectID": "tools/overview.html#integrated-development-environments",
-    "href": "tools/overview.html#integrated-development-environments",
+    "objectID": "implement/overview.html#integrated-development-environments",
+    "href": "implement/overview.html#integrated-development-environments",
     "title": "Development Tools",
     "section": "Integrated Development Environments",
     "text": "Integrated Development Environments\nIntegrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The recommended IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder. Read on…"
   },
   {
-    "objectID": "tools/overview.html#package-and-environment-managemers",
-    "href": "tools/overview.html#package-and-environment-managemers",
+    "objectID": "implement/overview.html#package-and-environment-managemers",
+    "href": "implement/overview.html#package-and-environment-managemers",
     "title": "Development Tools",
     "section": "Package and Environment Managemers",
     "text": "Package and Environment Managemers\nPython packages are distributed by a wide number of individuals and organizations, with just-as-widely varying degrees of sophistication. Package and environment managers (PEMs) are tools that seek to help users of these Python packages resolve the inevitable web of dependencies that emerge between various packages (dependency hell). Read on…"
   },
   {
-    "objectID": "tools/overview.html#version-control-systems",
-    "href": "tools/overview.html#version-control-systems",
+    "objectID": "implement/overview.html#version-control-systems",
+    "href": "implement/overview.html#version-control-systems",
     "title": "Development Tools",
     "section": "Version Control Systems",
     "text": "Version Control Systems\nA Version Control System (VCS) is a database system for tracking changes to a filesystem over time. There are many types of VCSs that have been developed over the years. There is an “interesting” history of version control available from Git for those interested in exploring the weeds of yesteryear. For others, it’s probably sufficient to point to the currently available systems and provide a brief summary of each. Read on…"
   },
   {
-    "objectID": "tools/overview.html#documentation",
-    "href": "tools/overview.html#documentation",
+    "objectID": "implement/overview.html#documentation",
+    "href": "implement/overview.html#documentation",
     "title": "Development Tools",
     "section": "Documentation",
     "text": "Documentation\nDocumentation is a vital part of any Python project. See the documentation tools page for a review of using some recommended tools for documenting your projects."
   },
   {
-    "objectID": "tools/overview.html#containerization",
-    "href": "tools/overview.html#containerization",
+    "objectID": "implement/overview.html#containerization",
+    "href": "implement/overview.html#containerization",
     "title": "Development Tools",
     "section": "Containerization",
     "text": "Containerization\nPackage and environment management is necessary but insufficient to ensure reproducible projects. Environments run on operating systems, which run on real or virtual machines. Containerization is a technology developed to support reproducibility and virtualization (at scale) of operating systems. Read on…"
@@ -257,6 +103,55 @@
     "title": "Python Starter Template",
     "section": "Documentation",
     "text": "Documentation\nAnother critical component of any well-developed Python project is, of course, documentation. For this template, the documentation is written/edited in the docs directory (by humans) and is then automatically rendered into a website stored in the build-docs folder during the fully automated build process. More details on this procedure are included in the documentation tools page."
+  },
+  {
+    "objectID": "design/overview.html",
+    "href": "design/overview.html",
+    "title": "Design Overview",
+    "section": "",
+    "text": "This project aims to provide a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout."
+  },
+  {
+    "objectID": "design/overview.html#virtual-environment",
+    "href": "design/overview.html#virtual-environment",
+    "title": "Design Overview",
+    "section": "Virtual environment",
+    "text": "Virtual environment\nThe virtual environment is specified via the requirements.txt file at the project root. Requirements include:\n# python=3.11\npip\npandas\nmatplotlib\nmlflow\nplotly\ndash\npyswmm[swmm5.2.3]\nswmmio\n\nThe essential pip, pandas and matplotlib libraries should need no explanation.\nThe mlflow library provides model lifecycle management and run info tracking capabilities.\nThe plotly and dash libraries provide the core visualization support.\nThe pyswmm and swmmio libraries enable Python-based interaction with OWA SWMM. The pip extras syntax pyswmm[swmm5.2.3] indicates that a platform-appropriate version of OWA SWMM v5.2.3 will be installed alongside the pyswmm library."
+  },
+  {
+    "objectID": "design/overview.html#integrations",
+    "href": "design/overview.html#integrations",
+    "title": "Design Overview",
+    "section": "Integrations",
+    "text": "Integrations\nThe integration between Azure web apps and GitHub is a built-in feature of Azure web app services, so the design is trivial and details provided in the implementation section should suffice to support reproducibility. The integration between Azure ML workspaces and MLflow is also a built in feature to Azure ML Studio, so details are deferred to implementation.\nThe tricky/novel (to me) part to this design is the integration between an Azure web app and an Azure ML workspace such that the data input to the app by users can be fully tracked through to the MLflow registry within the Azure ML workspace."
+  },
+  {
+    "objectID": "use/overview.html",
+    "href": "use/overview.html",
+    "title": "Getting Started with VS Code",
+    "section": "",
+    "text": "This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.\nThe primary steps covered here are:"
+  },
+  {
+    "objectID": "use/overview.html#install-vs-code",
+    "href": "use/overview.html#install-vs-code",
+    "title": "Getting Started with VS Code",
+    "section": "Install VS Code",
+    "text": "Install VS Code\nVS Code can be installed simply from the product’s main download page. Simply select the operating system for your machine and run the installer: - Accept the license agreement; - Accept default options for install destination; - Accept default Start Menu location; - Under “Select Additional Tasks”, keep the default selections and also select the two options to add “Open with Code” actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;"
+  },
+  {
+    "objectID": "use/overview.html#install-extensions",
+    "href": "use/overview.html#install-extensions",
+    "title": "Getting Started with VS Code",
+    "section": "Install Extensions",
+    "text": "Install Extensions\nOnce VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (Ctrl+Shift+X) instead. Use the search bar to find the desired extensions:\n\nPython - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features."
+  },
+  {
+    "objectID": "use/overview.html#basic-usage",
+    "href": "use/overview.html#basic-usage",
+    "title": "Getting Started with VS Code",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nIn this section we’ll walk through some basic usage steps, setting up some additional features along the way.\n\nOnce VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated.\nClone the Python project starter template repo from GitHub:\n\nUse the Ctrl+Shift+P shortcut to activate the command pallette (use Esc to exit it as needed)\nSearch the pallette for ‘Terminal’ and select the Terminal: Create New Terminal option that appears\nNote that the terminal “opens” as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired\ncd and/or mkdir to a desired directory\nEnter the command git clone git@github.com:gcoyle83/quarto-example-site.git, and enter authentication information as required (add SSH keygen instructions)\n\nWhen you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the “Open with VS Code” action accessible from the right-click context menu in Windows Explorer.\n\nNavigate to the repo location in Windows Explorer\nRight click on the repo directory\nSelect “Open with Code”, and note the root directory\nIn VS Code, select the source control blade (or use the strange Ctrl+Shift+G followed with g shortcut)\nExpand the Branches section of the blade and note that one branch (main) is shown\nExpand the Remotes section of the blade and then expand the origin to show all available branches\nHover over the website branch and note the several icons that appear on the right side\nHover over the first of these icons and note that it says “Switch to branch” - this is the same as the git switch command, but it also fetches it if it’s not currently in the local\nSelect the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)\nObserve that the branch is added to the Branches blade, and has a check-mark next to it\nHover over the check-mark; observe that the popup information is the same as would be returned by git status on the command line\nReturn to the Explorer blade (Ctrl+Shift+E), and note that the files shown now reflect the Quarto website content\nOpen the about.qmd file, and add your name to the list in the Development Group Members section of the page, then save your changes (Ctrl+S)\nReturn to the source control blade (Ctrl+Shift+G + g)\nExpand the source control section, and note that there is a change pending\nHover over the “Changes” list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the “Stage All Changes” button to stage your changes\nType a useful commit message and press the green Commit button\nClick the green Sync Changes button to sync with the remote GitHub repo"
   },
   {
     "objectID": "about.html",
