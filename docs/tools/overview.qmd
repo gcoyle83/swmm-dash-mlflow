@@ -1,0 +1,20 @@
+---
+title: "Development Tools"
+---
+
+There are many useful Python development tools, and we do not pretend to know them all. This section of the site offers guidance on which tools to use to get started and is based purely on our present abilities to provide guidance rather than any claims of one tool being better than any other. The tools identified and summarized here are selected based on current usage and willingness of a team member to share their knowledge here. If you like a tool that is not included in this section, please contribute content to improve the coverage here.
+
+## [Integrated Development Environments](integrated-dev-envs.qmd)
+Integrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The *recommended* IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder. [Read on...](integrated-dev-envs.qmd)
+
+## [Package and Environment Managemers](pkg-env-manager.qmd)
+Python packages are distributed by a wide number of individuals and organizations, with just-as-widely varying degrees of sophistication. Package and environment managers (PEMs) are tools that seek to help users of these Python packages resolve the inevitable web of dependencies that emerge between various packages (*dependency hell*). [Read on...](pkg-env-manager.qmd)
+
+## [Version Control Systems](version-control.qmd)
+A Version Control System (VCS) is a database system for tracking changes to a filesystem over time. There are many types of VCSs that have been developed over the years. There is an "interesting" [history of version control]() available from Git for those interested in exploring the weeds of yesteryear. For others, it's probably sufficient to point to the currently available systems and provide a brief summary of each. [Read on...](version-control.qmd)
+
+## [Documentation](documentation.qmd)
+Documentation is a vital part of any Python project. See the [documentation tools page](documentation.qmd) for a review of using some recommended tools for documenting your projects.
+
+## [Containerization](containers.qmd)
+Package and environment management is necessary but insufficient to ensure reproducible projects. Environments run on operating systems, which run on real or virtual machines. Containerization is a technology developed to support reproducibility and virtualization (at scale) of operating systems. [Read on...](containers.qmd)

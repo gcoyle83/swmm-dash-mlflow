@@ -1,0 +1,55 @@
+project:
+  type: website
+  output-dir: build-docs
+
+website:
+  title: "Python User's Guide"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - text: "Tools"
+        menu:
+          - href: tools/overview.qmd
+            text: Overview
+          - href: tools/integrated-dev-envs.qmd
+            text: Integrated Development Environments
+          - href: tools/pkg-env-manager.qmd
+            text: Package and Environment Managers
+          - href: tools/version-control.qmd
+            text: Version Control
+          - href: tools/documentation.qmd
+            text: Documentation
+          - href: tools/containers.qmd
+            text: Containerization
+      - text: Tutorials
+        menu:
+          - href: tutorials/vscode-primer.qmd
+            text: VS Code Primer
+      - text: Standards
+        menu:
+          - href: standards/overview.qmd
+            text: Overview
+  back-to-top-navigation: true
+  reader-mode: true
+  repo-url: https://github.com/gcoyle83/python-starter-template
+  issue-url: https://github.com/gcoyle83/python-starter-template/issues
+  repo-actions: [issue]
+  page-footer: 
+    left: "Copyright 2023, Python User's Group" 
+    right: 
+      - icon: github
+        href: https://github.com/gcoyle83/python-starter-template
+    background: light
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    css: styles.css
+    toc: true
+
+execute:
+  freeze: auto

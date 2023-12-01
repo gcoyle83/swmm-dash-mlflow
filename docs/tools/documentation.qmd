@@ -1,0 +1,20 @@
+---
+title: "Documentation"
+---
+
+Documentation for this template is developed using [Markdown]() and [Quarto]() (an extension of Markdown). The template is set up to make the documentation build process as simple as possible.  
+
+## Author/Edit Documentation
+To create new documentation, or edit existing docs, simply open the content in the `docs` directory and create new `.md` or `.qmd` files as needed. For specific details about authoring these files, it is recommended to start with Quarto's [Markdown Basics](https://quarto.org/docs/authoring/markdown-basics.html) page.
+
+:::{.callout-warning}
+The `build-docs` folder in the `docs` directory is the automatically rendered site that is seen on GitHub Pages. Do not edit files in this directory.
+:::
+
+The current template setup uses GitHub Actions to build a website automatically from the `docs` folder. The current settings override some of the usual defaults to enable using Quarto's build process instead of the standard (to GitHub) Jekyll build process. This greatly simplifies many things about rendering documentation to HTML and websites, as well as making it easier to render into books or Word documents later; this process is now fully automated.
+
+1. The first step is, of course, to make whatever edits are desired in the `docs` folder.
+1. Now just commit and push your changes to GitHub, and the automated website build process will take care of the rest
+
+## Quarto
+The current setup no longer requires installation of Quarto on your local machine. However, Quarto is still a useful tool on its own. To install, visit the [Quarto install page](https://quarto.org/docs/get-started/) and follow instructions for your operating system. A sub-page will be created soon for more information.

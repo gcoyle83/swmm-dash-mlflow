@@ -1,0 +1,13 @@
+---
+title: "Integrated Development Environments"
+---
+
+Integrated Development Environments (IDEs) are the workhorse for efficient software development, whether doing simple scripting or developing complex machine learning systems. The *recommended* IDE for Python development at present is VS Code, in the sense that current contributors to this content use VS Code and have more knowledge to share about VS Code than other IDEs such as, for example, PyCharm or Spyder. 
+
+### VS Code
+Visual Studio Code (VS Code) is a free, multi-platform, multi-language IDE developed by Microsoft and is popularly used by software engineers for developing solutions in numerous languages. The VS Code extensions ecosystem is large and active - there are extensions for linting, formatting, source control, containerization, cloud computing services and much (much) more.
+
+Ready to give it a try? See our [primer on installing and setting up VS Code](../tutorials/vscode-primer.qmd) to effectively collaborate on Python development projects. 
+
+### Others
+Feel free to add short descriptions of your favorite IDE and link to a primer page here.

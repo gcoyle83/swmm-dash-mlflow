@@ -1,0 +1,10 @@
+---
+title: "About"
+---
+
+The Python Development Group is an informal team of associates from various practices that make regular use of Python to improve and/or accelerate their workflows. Recognizing that we all face similar issues in selecting and learning about various "pieces" of the Python development process, we elected to work together toward pooling our collective experience through regular (monthly) discussion of best practices and generation of documentation around what works (or notably doesn't work) well for Python projects. 
+
+# Development Group Members
+The Python Dev Group members are voluntary and unofficial. If you are interested in joining the group to participate in these discussions, please reach out to a current team member and let them know.
+
+-  Greg Coyle

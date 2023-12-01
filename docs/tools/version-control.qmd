@@ -1,0 +1,11 @@
+---
+title: "Version Control Systems"
+---
+
+A Version Control System (VCS) is a database system for tracking changes to filesystem over time. There are many types of VCSs that have been developed over the years. There is an "interesting" [history of version control]() available from Git for those interested in exploring the weeds of yesteryear. For others, it's probably sufficient to point to the currently available systems and provide a brief summary of each. It is worth noting, however, that Git is the preferred choice of this group, as evident by the fact that this repo is hosted on GitHub.
+
+## Git
+More to come ...
+
+## Bitbucket
+More to come ...

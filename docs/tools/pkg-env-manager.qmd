@@ -1,0 +1,17 @@
+---
+title: "Package and Environment Managers"
+---
+
+Python packages are distributed by a wide number of individuals and organizations, with just-as-widely varying degrees of sophistication. Package and environment managers (PEMs) are tools that seek to help users of these Python packages resolve the inevitable web of dependencies that emerge between various packages (*dependency hell*).
+
+## Python Package Index
+The foundation...
+
+## Venv
+[venv](https://docs.python.org/3/library/venv.html) is a core module in Python, and the us the *official* environment manager of Python. It enables creating "virtual environments" that each have their own set of Python packages installed in their site directories. A venv is created on top of an existing Python installation (known as the 'base' Python). A venv may be created from a `requirements.txt` file that specifies the required packages and their versions.
+
+## Anaconda
+Anaconda is a third-party distribution of Python that includes its own package management system, IDE, and many more features. This is often where newer (2015 on, say) Python users first get onboarded, so it is quite popular.
+
+### Miniconda
+A lightweight variant worth knowing about...

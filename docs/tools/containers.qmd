@@ -1,0 +1,17 @@
+---
+title: "Containerization"
+---
+
+Package and environment management is necessary but insufficient to ensure reproducible projects. Environments run on operating systems, which run on real or virtual machines. Containerization is a technology developed to support reproducibility and virtualization (at scale) of operating systems. The leading tools for containerization of Python (or, really, any development) projects are Docker and Kubernetes. 
+
+## Docker
+is...
+
+## Kubernetes
+is... 
+
+## Azure Container Instances
+is...
+
+## Helm
+is...

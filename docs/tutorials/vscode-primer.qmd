@@ -1,0 +1,52 @@
+---
+title: "Getting Started with VS Code"
+---
+This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.
+
+The primary steps covered here are:
+
+-  Install VS Code
+-  Install Python extension for VS Code
+-  Basic usage instructions for a template Python project
+
+## Install VS Code
+VS Code can be installed simply from the product's main [download page](https://code.visualstudio.com/download). Simply select the operating system for your machine and run the installer: 
+-  Accept the license agreement;
+-  Accept default options for install destination; 
+-  Accept default Start Menu location; 
+-  Under "Select Additional Tasks", keep the default selections *and also* select the two options to add "Open with Code" actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;
+
+## Install Extensions
+Once VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (`Ctrl+Shift+X`) instead. Use the search bar to find the desired extensions:
+
+-  Python - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features.
+
+## Basic Usage
+In this section we'll walk through some basic usage steps, setting up some additional features along the way.
+
+-  Once VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated. 
+-  Clone the Python project starter template repo from GitHub:
+    -  Use the `Ctrl+Shift+P` shortcut to activate the command pallette (use `Esc` to exit it as needed)
+    -  Search the pallette for 'Terminal' and select the `Terminal: Create New Terminal` option that appears
+    -  Note that the terminal "opens" as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired
+    -  `cd` and/or `mkdir` to a desired directory 
+    -  Enter the command `git clone git@github.com:gcoyle83/quarto-example-site.git`, and enter authentication information as required (add SSH keygen instructions)
+-  When you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the "Open with VS Code" action accessible from the right-click context menu in Windows Explorer.
+    -  Navigate to the repo location in Windows Explorer
+    -  Right click on the repo directory
+    -  Select "Open with Code", and note the root directory
+    -  In VS Code, select the source control blade (or use the strange `Ctrl+Shift+G` followed with `g` shortcut)
+    -  Expand the Branches section of the blade and note that one branch (`main`) is shown
+    -  Expand the Remotes section of the blade and then expand the `origin` to show all available branches
+    -  Hover over the website branch and note the several icons that appear on the right side
+    -  Hover over the first of these icons and note that it says "Switch to branch" - this is the same as the `git switch` command, but it also fetches it if it's not currently in the local
+    -  Select the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)
+    -  Observe that the branch is added to the Branches blade, and has a check-mark next to it
+    -  Hover over the check-mark; observe that the popup information is the same as would be returned by `git status` on the command line
+    -  Return to the Explorer blade (`Ctrl+Shift+E`), and note that the files shown now reflect the Quarto website content
+    -  Open the `about.qmd` file, and add your name to the list in the Development Group Members section of the page, then save your changes (`Ctrl+S`)
+    -  Return to the source control blade (`Ctrl+Shift+G` + `g`) 
+    -  Expand the source control section, and note that there is a change pending
+    -  Hover over the "Changes" list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the "Stage All Changes" button to stage your changes
+    -  Type a useful commit message and press the green Commit button
+    -  Click the green Sync Changes button to sync with the remote GitHub repo

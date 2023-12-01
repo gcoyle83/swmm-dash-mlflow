@@ -1,0 +1,42 @@
+name: Black
+
+on:
+  workflow_dispatch:
+  push:
+    branches: main
+    paths: src/**
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.12
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: black
+      run: |
+        black src
+        black tests
+    - name: pylint
+      run: |
+        pylint --disable=R,C src
+    - name: pytest
+      run: |
+        python -m pytest -vv tests
+    - name: Auto-commit
+      run: |
+        git config --global user.name "Greg Coyle"
+        git config --global user.email "gcoyle@brwncald.com"
+        git add src
+        git add tests
+        git commit -am "Automated formatting by Black"
+        git push
