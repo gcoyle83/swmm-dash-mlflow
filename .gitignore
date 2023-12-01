@@ -131,3 +131,13 @@ dmypy.json
 # quarto publishing
 /.quarto/
 /_site/
+
+# SWMM artifacts
+src/swmm_files/*.out
+src/swmm_files/*.rpt
+src/swmm_files/*.db
+src/swmm_files/*.chi
+src/swmm_files/*.thm
+src/swmm_files/*.ini
+src/swmm_files/*.inp
+!src/swmm_files/example1.inp

@@ -3,44 +3,34 @@ project:
   output-dir: build-docs
 
 website:
-  title: "Python User's Guide"
+  title: "SWMM-Dash-MLFlow"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
-      - text: "Tools"
+      - text: "Design"
         menu:
-          - href: tools/overview.qmd
-            text: Overview
-          - href: tools/integrated-dev-envs.qmd
-            text: Integrated Development Environments
-          - href: tools/pkg-env-manager.qmd
-            text: Package and Environment Managers
-          - href: tools/version-control.qmd
-            text: Version Control
-          - href: tools/documentation.qmd
-            text: Documentation
-          - href: tools/containers.qmd
-            text: Containerization
-      - text: Tutorials
+          - href: design/overview.qmd
+            text: Design Overview
+      - text: "Implementation"
         menu:
-          - href: tutorials/vscode-primer.qmd
-            text: VS Code Primer
-      - text: Standards
+          - href: implement/overview.qmd
+            text: Implementation Overview
+      - text: "Usage"
         menu:
-          - href: standards/overview.qmd
-            text: Overview
+          - href: use/overview.qmd
+            text: Usage Overview
   back-to-top-navigation: true
   reader-mode: true
-  repo-url: https://github.com/gcoyle83/python-starter-template
-  issue-url: https://github.com/gcoyle83/python-starter-template/issues
+  # repo-url: https://github.com/gcoyle83/python-starter-template
+  issue-url: https://github.com/gcoyle83/swmm-dash-mlflow/issues
   repo-actions: [issue]
   page-footer: 
-    left: "Copyright 2023, Python User's Group" 
+    left: "Copyright 2023, Brown and Caldwell" 
     right: 
       - icon: github
-        href: https://github.com/gcoyle83/python-starter-template
+        href: https://github.com/gcoyle83/swmm-dash-mlflow
     background: light
 
 format:

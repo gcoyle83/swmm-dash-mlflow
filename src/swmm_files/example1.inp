@@ -1,0 +1,375 @@
+[TITLE]
+;;Project Title/Notes
+
+[OPTIONS]
+;;Option             Value
+FLOW_UNITS           CFS
+INFILTRATION         HORTON
+FLOW_ROUTING         DYNWAVE
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+ALLOW_PONDING        NO
+SKIP_STEADY_STATE    NO
+
+START_DATE           12/05/2022
+START_TIME           00:00:00
+REPORT_START_DATE    12/05/2022
+REPORT_START_TIME    00:00:00
+END_DATE             12/06/2022
+END_TIME             23:48:00
+SWEEP_START          1/1
+SWEEP_END            12/31
+DRY_DAYS             0
+REPORT_STEP          00:01:00
+WET_STEP             00:05:00
+DRY_STEP             00:05:00
+ROUTING_STEP         5
+RULE_STEP            00:00:00
+
+INERTIAL_DAMPING     PARTIAL
+NORMAL_FLOW_LIMITED  BOTH
+FORCE_MAIN_EQUATION  H-W
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         0
+MAX_TRIALS           8
+HEAD_TOLERANCE       0
+SYS_FLOW_TOL         5
+LAT_FLOW_TOL         5
+MINIMUM_STEP         0.5
+THREADS              8
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]
+;;Name           Format    Interval SCF      Source    
+;;-------------- --------- -------- -------- ----------
+SCS_Type_II_5in  INTENSITY 0:06     1.0      TIMESERIES SCS_Type_II_5in 
+
+[SUBCATCHMENTS]
+;;Name           Rain Gage        Outlet           Area     %Imperv  Width    %Slope   CurbLen  SnowPack        
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- -------- ----------------
+S1               SCS_Type_II_5in  J1               0.8193   50       500      0.5      0                        
+
+[SUBAREAS]
+;;Subcatchment   N-Imperv   N-Perv     S-Imperv   S-Perv     PctZero    RouteTo    PctRouted 
+;;-------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+S1               0.01       0.1        0.05       0.05       25         OUTLET    
+
+[INFILTRATION]
+;;Subcatchment   Param1     Param2     Param3     Param4     Param5    
+;;-------------- ---------- ---------- ---------- ---------- ----------
+S1               3          0.5        4          7          0         
+
+[JUNCTIONS]
+;;Name           Elevation  MaxDepth   InitDepth  SurDepth   Aponded   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+J1               10         10         0          0          0         
+
+[OUTFALLS]
+;;Name           Elevation  Type       Stage Data       Gated    Route To        
+;;-------------- ---------- ---------- ---------------- -------- ----------------
+OF1              0          FREE                        NO                       
+
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+C1               J1               OF1              214.946    0.014      0          0          0          0         
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels    Culvert   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ---------- ----------
+C1               CIRCULAR     2                0          0          0          1                    
+
+[LOSSES]
+;;Link           Kentry     Kexit      Kavg       Flap Gate  Seepage   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+
+[TIMESERIES]
+;;Name           Date       Time       Value     
+;;-------------- ---------- ---------- ----------
+;Rainfall (in/hr)
+SCS_Type_II_5in  12/05/2022 00:00:00   0.0505    
+SCS_Type_II_5in  12/05/2022 00:06:00   0.0505    
+SCS_Type_II_5in  12/05/2022 00:12:00   0.0515    
+SCS_Type_II_5in  12/05/2022 00:18:00   0.0515    
+SCS_Type_II_5in  12/05/2022 00:24:00   0.0525    
+SCS_Type_II_5in  12/05/2022 00:30:00   0.0525    
+SCS_Type_II_5in  12/05/2022 00:36:00   0.0535    
+SCS_Type_II_5in  12/05/2022 00:42:00   0.0535    
+SCS_Type_II_5in  12/05/2022 00:48:00   0.0545    
+SCS_Type_II_5in  12/05/2022 00:54:00   0.0545    
+SCS_Type_II_5in  12/05/2022 01:00:00   0.0555    
+SCS_Type_II_5in  12/05/2022 01:06:00   0.0555    
+SCS_Type_II_5in  12/05/2022 01:12:00   0.0565    
+SCS_Type_II_5in  12/05/2022 01:18:00   0.0565    
+SCS_Type_II_5in  12/05/2022 01:24:00   0.0575    
+SCS_Type_II_5in  12/05/2022 01:30:00   0.0575    
+SCS_Type_II_5in  12/05/2022 01:36:00   0.0585    
+SCS_Type_II_5in  12/05/2022 01:42:00   0.0585    
+SCS_Type_II_5in  12/05/2022 01:48:00   0.0595    
+SCS_Type_II_5in  12/05/2022 01:54:00   0.0595    
+SCS_Type_II_5in  12/05/2022 02:00:00   0.0605    
+SCS_Type_II_5in  12/05/2022 02:06:00   0.0605    
+SCS_Type_II_5in  12/05/2022 02:12:00   0.0615    
+SCS_Type_II_5in  12/05/2022 02:18:00   1.0615    
+SCS_Type_II_5in  12/05/2022 02:24:00   1.0625    
+SCS_Type_II_5in  12/05/2022 02:30:00   1.0625    
+SCS_Type_II_5in  12/05/2022 02:36:00   1.0635    
+SCS_Type_II_5in  12/05/2022 02:42:00   1.0635    
+SCS_Type_II_5in  12/05/2022 02:48:00   1.0645    
+SCS_Type_II_5in  12/05/2022 02:54:00   1.0645    
+SCS_Type_II_5in  12/05/2022 03:00:00   1.0655    
+SCS_Type_II_5in  12/05/2022 03:06:00   1.0655    
+SCS_Type_II_5in  12/05/2022 03:12:00   1.0665    
+SCS_Type_II_5in  12/05/2022 03:18:00   1.0665    
+SCS_Type_II_5in  12/05/2022 03:24:00   1.0675    
+SCS_Type_II_5in  12/05/2022 03:30:00   1.0675    
+SCS_Type_II_5in  12/05/2022 03:36:00   1.0685    
+SCS_Type_II_5in  12/05/2022 03:42:00   1.0685    
+SCS_Type_II_5in  12/05/2022 03:48:00   1.0695    
+SCS_Type_II_5in  12/05/2022 03:54:00   1.0695    
+SCS_Type_II_5in  12/05/2022 04:00:00   1.0705    
+SCS_Type_II_5in  12/05/2022 04:06:00   1.0715    
+SCS_Type_II_5in  12/05/2022 04:12:00   0.0725    
+SCS_Type_II_5in  12/05/2022 04:18:00   0.0735    
+SCS_Type_II_5in  12/05/2022 04:24:00   0.0745    
+SCS_Type_II_5in  12/05/2022 04:30:00   0.0755    
+SCS_Type_II_5in  12/05/2022 04:36:00   0.0765    
+SCS_Type_II_5in  12/05/2022 04:42:00   0.0775    
+SCS_Type_II_5in  12/05/2022 04:48:00   0.0785    
+SCS_Type_II_5in  12/05/2022 04:54:00   0.0795    
+SCS_Type_II_5in  12/05/2022 05:00:00   0.0805    
+SCS_Type_II_5in  12/05/2022 05:06:00   0.0815    
+SCS_Type_II_5in  12/05/2022 05:12:00   0.0825    
+SCS_Type_II_5in  12/05/2022 05:18:00   0.0835    
+SCS_Type_II_5in  12/05/2022 05:24:00   0.0845    
+SCS_Type_II_5in  12/05/2022 05:30:00   0.0855    
+SCS_Type_II_5in  12/05/2022 05:36:00   0.0865    
+SCS_Type_II_5in  12/05/2022 05:42:00   0.0875    
+SCS_Type_II_5in  12/05/2022 05:48:00   0.0885    
+SCS_Type_II_5in  12/05/2022 05:54:00   0.0895    
+SCS_Type_II_5in  12/05/2022 06:00:00   0.0905    
+SCS_Type_II_5in  12/05/2022 06:06:00   0.0915    
+SCS_Type_II_5in  12/05/2022 06:12:00   0.0925    
+SCS_Type_II_5in  12/05/2022 06:18:00   0.0935    
+SCS_Type_II_5in  12/05/2022 06:24:00   0.0945    
+SCS_Type_II_5in  12/05/2022 06:30:00   0.0955    
+SCS_Type_II_5in  12/05/2022 06:36:00   0.0965    
+SCS_Type_II_5in  12/05/2022 06:42:00   0.0975    
+SCS_Type_II_5in  12/05/2022 06:48:00   0.0985    
+SCS_Type_II_5in  12/05/2022 06:54:00   0.0995    
+SCS_Type_II_5in  12/05/2022 07:00:00   0.1005    
+SCS_Type_II_5in  12/05/2022 07:06:00   0.1015    
+SCS_Type_II_5in  12/05/2022 07:12:00   0.1025    
+SCS_Type_II_5in  12/05/2022 07:18:00   0.1035    
+SCS_Type_II_5in  12/05/2022 07:24:00   0.1045    
+SCS_Type_II_5in  12/05/2022 07:30:00   0.1055    
+SCS_Type_II_5in  12/05/2022 07:36:00   0.1065    
+SCS_Type_II_5in  12/05/2022 07:42:00   0.1075    
+SCS_Type_II_5in  12/05/2022 07:48:00   0.1085    
+SCS_Type_II_5in  12/05/2022 07:54:00   0.1095    
+SCS_Type_II_5in  12/05/2022 08:00:00   0.1125    
+SCS_Type_II_5in  12/05/2022 08:06:00   0.1175    
+SCS_Type_II_5in  12/05/2022 08:12:00   0.1225    
+SCS_Type_II_5in  12/05/2022 08:18:00   0.1275    
+SCS_Type_II_5in  12/05/2022 08:24:00   0.1325    
+SCS_Type_II_5in  12/05/2022 08:30:00   0.1375    
+SCS_Type_II_5in  12/05/2022 08:36:00   0.1425    
+SCS_Type_II_5in  12/05/2022 08:42:00   0.1475    
+SCS_Type_II_5in  12/05/2022 08:48:00   0.1525    
+SCS_Type_II_5in  12/05/2022 08:54:00   0.1575    
+SCS_Type_II_5in  12/05/2022 09:00:00   0.16      
+SCS_Type_II_5in  12/05/2022 09:06:00   0.16      
+SCS_Type_II_5in  12/05/2022 09:12:00   0.16      
+SCS_Type_II_5in  12/05/2022 09:18:00   0.16      
+SCS_Type_II_5in  12/05/2022 09:24:00   0.16      
+SCS_Type_II_5in  12/05/2022 09:30:00   0.164     
+SCS_Type_II_5in  12/05/2022 09:36:00   0.172     
+SCS_Type_II_5in  12/05/2022 09:42:00   0.18      
+SCS_Type_II_5in  12/05/2022 09:48:00   0.188     
+SCS_Type_II_5in  12/05/2022 09:54:00   0.196     
+SCS_Type_II_5in  12/05/2022 10:00:00   0.206     
+SCS_Type_II_5in  12/05/2022 10:06:00   0.218     
+SCS_Type_II_5in  12/05/2022 10:12:00   0.23      
+SCS_Type_II_5in  12/05/2022 10:18:00   0.242     
+SCS_Type_II_5in  12/05/2022 10:24:00   0.254     
+SCS_Type_II_5in  12/05/2022 10:30:00   0.27      
+SCS_Type_II_5in  12/05/2022 10:36:00   0.29      
+SCS_Type_II_5in  12/05/2022 10:42:00   0.31      
+SCS_Type_II_5in  12/05/2022 10:48:00   0.33      
+SCS_Type_II_5in  12/05/2022 10:54:00   0.35      
+SCS_Type_II_5in  12/05/2022 11:00:00   0.384     
+SCS_Type_II_5in  12/05/2022 11:06:00   0.432     
+SCS_Type_II_5in  12/05/2022 11:12:00   0.48      
+SCS_Type_II_5in  12/05/2022 11:18:00   0.528     
+SCS_Type_II_5in  12/05/2022 11:24:00   0.576     
+SCS_Type_II_5in  12/05/2022 11:30:00   1.192     
+SCS_Type_II_5in  12/05/2022 11:36:00   2.376     
+SCS_Type_II_5in  12/05/2022 11:42:00   3.8215    
+SCS_Type_II_5in  12/05/2022 11:48:00   6.8535    
+SCS_Type_II_5in  12/05/2022 11:54:00   4.757     
+SCS_Type_II_5in  12/05/2022 12:00:00   0.948     
+SCS_Type_II_5in  12/05/2022 12:06:00   0.834     
+SCS_Type_II_5in  12/05/2022 12:12:00   0.72      
+SCS_Type_II_5in  12/05/2022 12:18:00   0.606     
+SCS_Type_II_5in  12/05/2022 12:24:00   0.492     
+SCS_Type_II_5in  12/05/2022 12:30:00   0.422     
+SCS_Type_II_5in  12/05/2022 12:36:00   0.396     
+SCS_Type_II_5in  12/05/2022 12:42:00   0.37      
+SCS_Type_II_5in  12/05/2022 12:48:00   0.344     
+SCS_Type_II_5in  12/05/2022 12:54:00   0.318     
+SCS_Type_II_5in  12/05/2022 13:00:00   0.298     
+SCS_Type_II_5in  12/05/2022 13:06:00   0.284     
+SCS_Type_II_5in  12/05/2022 13:12:00   0.27      
+SCS_Type_II_5in  12/05/2022 13:18:00   0.256     
+SCS_Type_II_5in  12/05/2022 13:24:00   0.242     
+SCS_Type_II_5in  12/05/2022 13:30:00   0.23      
+SCS_Type_II_5in  12/05/2022 13:36:00   0.22      
+SCS_Type_II_5in  12/05/2022 13:42:00   0.21      
+SCS_Type_II_5in  12/05/2022 13:48:00   0.2       
+SCS_Type_II_5in  12/05/2022 13:54:00   0.19      
+SCS_Type_II_5in  12/05/2022 14:00:00   0.1835    
+SCS_Type_II_5in  12/05/2022 14:06:00   0.1795    
+SCS_Type_II_5in  12/05/2022 14:12:00   0.1765    
+SCS_Type_II_5in  12/05/2022 14:18:00   0.1725    
+SCS_Type_II_5in  12/05/2022 14:24:00   0.1695    
+SCS_Type_II_5in  12/05/2022 14:30:00   0.1655    
+SCS_Type_II_5in  12/05/2022 14:36:00   0.1625    
+SCS_Type_II_5in  12/05/2022 14:42:00   0.1585    
+SCS_Type_II_5in  12/05/2022 14:48:00   0.1555    
+SCS_Type_II_5in  12/05/2022 14:54:00   0.1515    
+SCS_Type_II_5in  12/05/2022 15:00:00   0.1485    
+SCS_Type_II_5in  12/05/2022 15:06:00   0.1445    
+SCS_Type_II_5in  12/05/2022 15:12:00   0.1415    
+SCS_Type_II_5in  12/05/2022 15:18:00   0.1375    
+SCS_Type_II_5in  12/05/2022 15:24:00   0.1345    
+SCS_Type_II_5in  12/05/2022 15:30:00   0.1305    
+SCS_Type_II_5in  12/05/2022 15:36:00   0.1275    
+SCS_Type_II_5in  12/05/2022 15:42:00   0.1235    
+SCS_Type_II_5in  12/05/2022 15:48:00   0.1205    
+SCS_Type_II_5in  12/05/2022 15:54:00   0.1165    
+SCS_Type_II_5in  12/05/2022 16:00:00   0.1145    
+SCS_Type_II_5in  12/05/2022 16:06:00   0.113     
+SCS_Type_II_5in  12/05/2022 16:12:00   0.112     
+SCS_Type_II_5in  12/05/2022 16:18:00   0.1105    
+SCS_Type_II_5in  12/05/2022 16:24:00   0.1095    
+SCS_Type_II_5in  12/05/2022 16:30:00   0.108     
+SCS_Type_II_5in  12/05/2022 16:36:00   0.107     
+SCS_Type_II_5in  12/05/2022 16:42:00   0.1055    
+SCS_Type_II_5in  12/05/2022 16:48:00   0.1045    
+SCS_Type_II_5in  12/05/2022 16:54:00   0.103     
+SCS_Type_II_5in  12/05/2022 17:00:00   0.102     
+SCS_Type_II_5in  12/05/2022 17:06:00   0.1005    
+SCS_Type_II_5in  12/05/2022 17:12:00   0.0995    
+SCS_Type_II_5in  12/05/2022 17:18:00   0.098     
+SCS_Type_II_5in  12/05/2022 17:24:00   0.097     
+SCS_Type_II_5in  12/05/2022 17:30:00   0.0955    
+SCS_Type_II_5in  12/05/2022 17:36:00   0.0945    
+SCS_Type_II_5in  12/05/2022 17:42:00   0.093     
+SCS_Type_II_5in  12/05/2022 17:48:00   0.092     
+SCS_Type_II_5in  12/05/2022 17:54:00   0.0905    
+SCS_Type_II_5in  12/05/2022 18:00:00   0.0895    
+SCS_Type_II_5in  12/05/2022 18:06:00   0.088     
+SCS_Type_II_5in  12/05/2022 18:12:00   0.087     
+SCS_Type_II_5in  12/05/2022 18:18:00   0.0855    
+SCS_Type_II_5in  12/05/2022 18:24:00   0.0845    
+SCS_Type_II_5in  12/05/2022 18:30:00   0.083     
+SCS_Type_II_5in  12/05/2022 18:36:00   0.082     
+SCS_Type_II_5in  12/05/2022 18:42:00   0.0805    
+SCS_Type_II_5in  12/05/2022 18:48:00   0.0795    
+SCS_Type_II_5in  12/05/2022 18:54:00   0.078     
+SCS_Type_II_5in  12/05/2022 19:00:00   0.077     
+SCS_Type_II_5in  12/05/2022 19:06:00   0.0755    
+SCS_Type_II_5in  12/05/2022 19:12:00   0.0745    
+SCS_Type_II_5in  12/05/2022 19:18:00   0.073     
+SCS_Type_II_5in  12/05/2022 19:24:00   0.072     
+SCS_Type_II_5in  12/05/2022 19:30:00   0.0705    
+SCS_Type_II_5in  12/05/2022 19:36:00   0.0695    
+SCS_Type_II_5in  12/05/2022 19:42:00   0.068     
+SCS_Type_II_5in  12/05/2022 19:48:00   0.067     
+SCS_Type_II_5in  12/05/2022 19:54:00   0.0655    
+SCS_Type_II_5in  12/05/2022 20:00:00   0.065     
+SCS_Type_II_5in  12/05/2022 20:06:00   0.0645    
+SCS_Type_II_5in  12/05/2022 20:12:00   0.0645    
+SCS_Type_II_5in  12/05/2022 20:18:00   0.064     
+SCS_Type_II_5in  12/05/2022 20:24:00   0.064     
+SCS_Type_II_5in  12/05/2022 20:30:00   0.0635    
+SCS_Type_II_5in  12/05/2022 20:36:00   0.0635    
+SCS_Type_II_5in  12/05/2022 20:42:00   0.063     
+SCS_Type_II_5in  12/05/2022 20:48:00   0.063     
+SCS_Type_II_5in  12/05/2022 20:54:00   0.0625    
+SCS_Type_II_5in  12/05/2022 21:00:00   0.0625    
+SCS_Type_II_5in  12/05/2022 21:06:00   0.062     
+SCS_Type_II_5in  12/05/2022 21:12:00   0.062     
+SCS_Type_II_5in  12/05/2022 21:18:00   0.0615    
+SCS_Type_II_5in  12/05/2022 21:24:00   0.0615    
+SCS_Type_II_5in  12/05/2022 21:30:00   0.061     
+SCS_Type_II_5in  12/05/2022 21:36:00   0.061     
+SCS_Type_II_5in  12/05/2022 21:42:00   0.0605    
+SCS_Type_II_5in  12/05/2022 21:48:00   0.0605    
+SCS_Type_II_5in  12/05/2022 21:54:00   0.06      
+SCS_Type_II_5in  12/05/2022 22:00:00   0.06      
+SCS_Type_II_5in  12/05/2022 22:06:00   0.0595    
+SCS_Type_II_5in  12/05/2022 22:12:00   0.0595    
+SCS_Type_II_5in  12/05/2022 22:18:00   0.059     
+SCS_Type_II_5in  12/05/2022 22:24:00   0.059     
+SCS_Type_II_5in  12/05/2022 22:30:00   0.0585    
+SCS_Type_II_5in  12/05/2022 22:36:00   0.0585    
+SCS_Type_II_5in  12/05/2022 22:42:00   0.058     
+SCS_Type_II_5in  12/05/2022 22:48:00   0.058     
+SCS_Type_II_5in  12/05/2022 22:54:00   0.0575    
+SCS_Type_II_5in  12/05/2022 23:00:00   0.0575    
+SCS_Type_II_5in  12/05/2022 23:06:00   0.057     
+SCS_Type_II_5in  12/05/2022 23:12:00   0.057     
+SCS_Type_II_5in  12/05/2022 23:18:00   0.0565    
+SCS_Type_II_5in  12/05/2022 23:24:00   0.0565    
+SCS_Type_II_5in  12/05/2022 23:30:00   0.056     
+SCS_Type_II_5in  12/05/2022 23:36:00   0.056     
+SCS_Type_II_5in  12/05/2022 23:42:00   0.0555    
+SCS_Type_II_5in  12/05/2022 23:48:00   0.0555    
+SCS_Type_II_5in  12/05/2022 23:54:00   0.055     
+
+[REPORT]
+;;Reporting Options
+INPUT      YES
+CONTROLS   NO
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[TAGS]
+
+[MAP]
+DIMENSIONS       -8239557.51629162 4970496.01954177 -8239245.40210331 4970796.32370956
+UNITS            Feet
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+J1               -8239352.758       4970518.457       
+OF1              -8239543.329       4970617.878       
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+
+[POLYGONS]
+;;Subcatchment   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+S1               -8239350.221       4970509.67        
+S1               -8239474.88        4970576.57        
+S1               -8239473.218       4970628.927       
+S1               -8239449.117       4970709.956       
+S1               -8239420.03        4970763.144       
+S1               -8239401.331       4970782.674       
+S1               -8239259.589       4970704.785       
+S1               -8239350.221       4970509.67        
+
+[SYMBOLS]
+;;Gage           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------

@@ -1,0 +1,36 @@
+---
+title: "Design Overview"
+---
+
+This project aims to provide a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout.
+
+# Design Components
+The primary design components include:
+
+-  Virtual environment management with `venv`
+-  Integration between an Azure web app, GitHub repo, Azure ML workspace and MLFlow tracking registry 
+
+## Virtual environment
+The virtual environment is specified via the `requirements.txt` file at the project root. Requirements include:
+
+```
+# python=3.11
+pip
+pandas
+matplotlib
+mlflow
+plotly
+dash
+pyswmm[swmm5.2.3]
+swmmio
+```
+
+-  The essential `pip`, `pandas` and `matplotlib` libraries should need no explanation. 
+-  The `mlflow` library provides model lifecycle management and run info tracking capabilities.
+-  The `plotly` and `dash` libraries provide the core visualization support.
+-  The `pyswmm` and `swmmio` libraries enable Python-based interaction with OWA SWMM. The `pip` extras syntax `pyswmm[swmm5.2.3]` indicates that a platform-appropriate version of OWA SWMM v5.2.3 will be installed alongside the `pyswmm` library.
+
+## Integrations
+The integration between Azure web apps and GitHub is a built-in feature of Azure web app services, so the design is trivial and details provided in the implementation section should suffice to support reproducibility. The integration between Azure ML workspaces and MLflow is also a built in feature to Azure ML Studio, so details are deferred to implementation.
+
+The tricky/novel (to me) part to this design is the integration between an Azure web app and an Azure ML workspace such that the data input to the app by users can be fully tracked through to the MLflow registry within the Azure ML workspace.

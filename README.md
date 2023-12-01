@@ -1,24 +1,17 @@
-[![Docs](https://github.com/BrownandCaldwell/python-starter-template/actions/workflows/render_docs.yml/badge.svg)](https://silver-adventure-z4859ng.pages.github.io/)
-[![Black](https://github.com/BrownandCaldwell/python-starter-template/actions/workflows/format.yml/badge.svg)](https://github.com/BrownandCaldwell/python-starter-template/actions/workflows/format.yml)
+# SWMM-Dash-MLflow
+This repo provides a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout.
 
-# Python Starter Template
-This repo provides a basic starter template for best practices developing and testing *unpackaged* Python code. Emphasis on that last point - this is **not** a Python packaging template. This template is for use with generic Python projects that want to take advantage of automated tools to improve the development process, including: 
+Components:
 
 -  Virtual environment management with `venv`
--  Automated code review with `Pylint` and `Black`
--  Functional tests with `Pytest`
--  Remote tests to support reproducibility (via GitHub Actions)
--  Automated project documentation rendering with Quarto
-
-> [!NOTE]  
-> Many of the concepts implemented here are directly from the excellent Duke University Coursera Course by Noah Gift: [*Cloud Computing Foundations*](https://coursera.org/share/0e44a583040b010e6aeb674febbac00e)
+<!-- -  Automated code review with `Pylint` and `Black` (initially disabled)
+<!-- -  Functional tests with `Pytest` (initially disabled) -->
+<!-- -  Remote tests to support reproducibility (via GitHub Actions - initially disabled) -->
+<!-- -  Automated project documentation rendering with Quarto (initially disabled) -->
+-  Integration between an Azure web app, GitHub repo, Azure ML workspace and MLFlow tracking registry 
 
 # Usage
-
-> [!WARNING]  
-> This repo is a *template*. DO NOT clone it and then attempt to modify it (this will fail by design).
-
-For usage details, see the project [website](https://silver-adventure-z4859ng.pages.github.io/).
+Under construction.
 
 # Documentation
-Another critical component of any well-developed Python project is, of course, documentation. For this template, the documentation is *written/edited* in the `docs` directory (by humans) and is then automatically rendered into a website stored in the `build-docs` folder during the fully automated build process. More details on this procedure are included in the [documentation tools](https://silver-adventure-z4859ng.pages.github.io/tools/documentation.html) page.
+Documentation is in development under `docs/` but note that GH Pages hosting is deferred during initial development. The docs website may be viewed under `docs/build-docs` by downloading and opening as a local website. Documentation is organized under a practical `design`, `implement`, `use` structure which should be intuitive enough to excuse further explanation.
