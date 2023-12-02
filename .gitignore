@@ -132,12 +132,14 @@ dmypy.json
 /.quarto/
 /_site/
 
+# Repo specific
+dev/**
 # SWMM artifacts
-src/swmm_files/*.out
-src/swmm_files/*.rpt
-src/swmm_files/*.db
-src/swmm_files/*.chi
-src/swmm_files/*.thm
-src/swmm_files/*.ini
-src/swmm_files/*.inp
-!src/swmm_files/example1.inp
+swmm_files/*.out
+swmm_files/*.rpt
+swmm_files/*.db
+swmm_files/*.chi
+swmm_files/*.thm
+swmm_files/*.ini
+swmm_files/*.inp
+!swmm_files/DemoModel.inp
