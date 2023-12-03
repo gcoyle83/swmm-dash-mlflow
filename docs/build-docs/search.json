@@ -4,14 +4,70 @@
     "href": "implement/overview.html",
     "title": "Implementation Overview",
     "section": "",
-    "text": "Deployment follows the guidance at this blog post previously used successfully."
+    "text": "Deployment follows the guidance at this blog post previously used successfully.\nFor full description of the deployment steps taken, see the deployment notes here."
   },
   {
     "objectID": "implement/overview.html#app-deployment",
     "href": "implement/overview.html#app-deployment",
     "title": "Implementation Overview",
     "section": "",
-    "text": "Deployment follows the guidance at this blog post previously used successfully."
+    "text": "Deployment follows the guidance at this blog post previously used successfully.\nFor full description of the deployment steps taken, see the deployment notes here."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "The Python Development Group is an informal team of associates from various practices that make regular use of Python to improve and/or accelerate their workflows. Recognizing that we all face similar issues in selecting and learning about various “pieces” of the Python development process, we elected to work together toward pooling our collective experience through regular (monthly) discussion of best practices and generation of documentation around what works (or notably doesn’t work) well for Python projects.\n\nDevelopment Group Members\nThe Python Dev Group members are voluntary and unofficial. If you are interested in joining the group to participate in these discussions, please reach out to a current team member and let them know.\n\nGreg Coyle\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "use/overview.html",
+    "href": "use/overview.html",
+    "title": "Getting Started with VS Code",
+    "section": "",
+    "text": "This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.\nThe primary steps covered here are:"
+  },
+  {
+    "objectID": "use/overview.html#install-vs-code",
+    "href": "use/overview.html#install-vs-code",
+    "title": "Getting Started with VS Code",
+    "section": "Install VS Code",
+    "text": "Install VS Code\nVS Code can be installed simply from the product’s main download page. Simply select the operating system for your machine and run the installer: - Accept the license agreement; - Accept default options for install destination; - Accept default Start Menu location; - Under “Select Additional Tasks”, keep the default selections and also select the two options to add “Open with Code” actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;"
+  },
+  {
+    "objectID": "use/overview.html#install-extensions",
+    "href": "use/overview.html#install-extensions",
+    "title": "Getting Started with VS Code",
+    "section": "Install Extensions",
+    "text": "Install Extensions\nOnce VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (Ctrl+Shift+X) instead. Use the search bar to find the desired extensions:\n\nPython - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features."
+  },
+  {
+    "objectID": "use/overview.html#basic-usage",
+    "href": "use/overview.html#basic-usage",
+    "title": "Getting Started with VS Code",
+    "section": "Basic Usage",
+    "text": "Basic Usage\nIn this section we’ll walk through some basic usage steps, setting up some additional features along the way.\n\nOnce VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated.\nClone the Python project starter template repo from GitHub:\n\nUse the Ctrl+Shift+P shortcut to activate the command pallette (use Esc to exit it as needed)\nSearch the pallette for ‘Terminal’ and select the Terminal: Create New Terminal option that appears\nNote that the terminal “opens” as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired\ncd and/or mkdir to a desired directory\nEnter the command git clone git@github.com:gcoyle83/quarto-example-site.git, and enter authentication information as required (add SSH keygen instructions)\n\nWhen you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the “Open with VS Code” action accessible from the right-click context menu in Windows Explorer.\n\nNavigate to the repo location in Windows Explorer\nRight click on the repo directory\nSelect “Open with Code”, and note the root directory\nIn VS Code, select the source control blade (or use the strange Ctrl+Shift+G followed with g shortcut)\nExpand the Branches section of the blade and note that one branch (main) is shown\nExpand the Remotes section of the blade and then expand the origin to show all available branches\nHover over the website branch and note the several icons that appear on the right side\nHover over the first of these icons and note that it says “Switch to branch” - this is the same as the git switch command, but it also fetches it if it’s not currently in the local\nSelect the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)\nObserve that the branch is added to the Branches blade, and has a check-mark next to it\nHover over the check-mark; observe that the popup information is the same as would be returned by git status on the command line\nReturn to the Explorer blade (Ctrl+Shift+E), and note that the files shown now reflect the Quarto website content\nOpen the about.qmd file, and add your name to the list in the Development Group Members section of the page, then save your changes (Ctrl+S)\nReturn to the source control blade (Ctrl+Shift+G + g)\nExpand the source control section, and note that there is a change pending\nHover over the “Changes” list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the “Stage All Changes” button to stage your changes\nType a useful commit message and press the green Commit button\nClick the green Sync Changes button to sync with the remote GitHub repo"
+  },
+  {
+    "objectID": "design/overview.html",
+    "href": "design/overview.html",
+    "title": "Design Overview",
+    "section": "",
+    "text": "This project aims to provide a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout."
+  },
+  {
+    "objectID": "design/overview.html#virtual-environment",
+    "href": "design/overview.html#virtual-environment",
+    "title": "Design Overview",
+    "section": "Virtual environment",
+    "text": "Virtual environment\nThe virtual environment is specified via the requirements.txt file at the project root. Requirements include:\n# python=3.11\npip\npandas\nmatplotlib\nmlflow\nplotly\ndash\npyswmm[swmm5.2.3]\nswmmio\n\nThe essential pip, pandas and matplotlib libraries should need no explanation.\nThe mlflow library provides model lifecycle management and run info tracking capabilities.\nThe plotly and dash libraries provide the core visualization support.\nThe pyswmm and swmmio libraries enable Python-based interaction with OWA SWMM. The pip extras syntax pyswmm[swmm5.2.3] indicates that a platform-appropriate version of OWA SWMM v5.2.3 will be installed alongside the pyswmm library."
+  },
+  {
+    "objectID": "design/overview.html#integrations",
+    "href": "design/overview.html#integrations",
+    "title": "Design Overview",
+    "section": "Integrations",
+    "text": "Integrations\nThe integration between Azure web apps and GitHub is a built-in feature of Azure web app services, so the design is trivial and details provided in the implementation section should suffice to support reproducibility. The integration between Azure ML workspaces and MLflow is also a built in feature to Azure ML Studio, so details are deferred to implementation.\nThe tricky/novel (to me) part to this design is the integration between an Azure web app and an Azure ML workspace such that the data input to the app by users can be fully tracked through to the MLflow registry within the Azure ML workspace.\nTo date, we’ve thoroughly implemented and largely documented the procedures for tracking jobs run in an Azure ML workspace via the MLFlow tracking registry (via DWQML_WQForecasting). The PFAS app also demonstrates the MWE for deploying an Azure web app that uses a model registered in an Azure ML workspace as an online endpoint, but does not implement tracking of jobs submitted to that endpoint.\nIn the interest of advancing this PoC as quickly as possible, it may be appropriate to defer the MLFlow tracking piece and just ensure that we can deploy an Azure web app running SWMM on the backend with a Dash front end, and then circle back to include the MLFlow tracking requirement on a later iteration.\nThis should be analagous to the design of the PFAS app, which was basically:\nroot/\n    -  .github/workflows\n    -  assets/data\n    -  .gitignore\n    -  README.md\n    -  app.py\n    -  requirements.txt\nWherein the .github/workflows folder contains an autogenerated (by Azure) workflow file that:\n\nOn push to main branch builds the ubuntu-latest runner\nChecks out the branch\nSets up specified Python version\nCreates the venv and installs depenedencies from requirements.txt\nUploads the app and dependencies and deploys to Azure appropriately\n\nSo, simply replacing the app.py module with appropriate code for the interactive SWMM MWE, and the assets/data folder with a swmm_files folder, should hopefully result in a functioning Azure web service for running SWMM by command at a Dash interface."
   },
   {
     "objectID": "index.html",
@@ -77,59 +133,10 @@
     "text": "Documentation\nAnother critical component of any well-developed Python project is, of course, documentation. For this template, the documentation is written/edited in the docs directory (by humans) and is then automatically rendered into a website stored in the build-docs folder during the fully automated build process. More details on this procedure are included in the documentation tools page."
   },
   {
-    "objectID": "design/overview.html",
-    "href": "design/overview.html",
-    "title": "Design Overview",
+    "objectID": "implement/azure_deployment.html",
+    "href": "implement/azure_deployment.html",
+    "title": "Azure Web App Deployment",
     "section": "",
-    "text": "This project aims to provide a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout."
-  },
-  {
-    "objectID": "design/overview.html#virtual-environment",
-    "href": "design/overview.html#virtual-environment",
-    "title": "Design Overview",
-    "section": "Virtual environment",
-    "text": "Virtual environment\nThe virtual environment is specified via the requirements.txt file at the project root. Requirements include:\n# python=3.11\npip\npandas\nmatplotlib\nmlflow\nplotly\ndash\npyswmm[swmm5.2.3]\nswmmio\n\nThe essential pip, pandas and matplotlib libraries should need no explanation.\nThe mlflow library provides model lifecycle management and run info tracking capabilities.\nThe plotly and dash libraries provide the core visualization support.\nThe pyswmm and swmmio libraries enable Python-based interaction with OWA SWMM. The pip extras syntax pyswmm[swmm5.2.3] indicates that a platform-appropriate version of OWA SWMM v5.2.3 will be installed alongside the pyswmm library."
-  },
-  {
-    "objectID": "design/overview.html#integrations",
-    "href": "design/overview.html#integrations",
-    "title": "Design Overview",
-    "section": "Integrations",
-    "text": "Integrations\nThe integration between Azure web apps and GitHub is a built-in feature of Azure web app services, so the design is trivial and details provided in the implementation section should suffice to support reproducibility. The integration between Azure ML workspaces and MLflow is also a built in feature to Azure ML Studio, so details are deferred to implementation.\nThe tricky/novel (to me) part to this design is the integration between an Azure web app and an Azure ML workspace such that the data input to the app by users can be fully tracked through to the MLflow registry within the Azure ML workspace.\nTo date, we’ve thoroughly implemented and largely documented the procedures for tracking jobs run in an Azure ML workspace via the MLFlow tracking registry (via DWQML_WQForecasting). The PFAS app also demonstrates the MWE for deploying an Azure web app that uses a model registered in an Azure ML workspace as an online endpoint, but does not implement tracking of jobs submitted to that endpoint.\nIn the interest of advancing this PoC as quickly as possible, it may be appropriate to defer the MLFlow tracking piece and just ensure that we can deploy an Azure web app running SWMM on the backend with a Dash front end, and then circle back to include the MLFlow tracking requirement on a later iteration.\nThis should be analagous to the design of the PFAS app, which was basically:\nroot/\n    -  .github/workflows\n    -  assets/data\n    -  .gitignore\n    -  README.md\n    -  app.py\n    -  requirements.txt\nWherein the .github/workflows folder contains an autogenerated (by Azure) workflow file that:\n\nOn push to main branch builds the ubuntu-latest runner\nChecks out the branch\nSets up specified Python version\nCreates the venv and installs depenedencies from requirements.txt\nUploads the app and dependencies and deploys to Azure appropriately\n\nSo, simply replacing the app.py module with appropriate code for the interactive SWMM MWE, and the assets/data folder with a swmm_files folder, should hopefully result in a functioning Azure web service for running SWMM by command at a Dash interface."
-  },
-  {
-    "objectID": "use/overview.html",
-    "href": "use/overview.html",
-    "title": "Getting Started with VS Code",
-    "section": "",
-    "text": "This page is intended as primer/SOP for installing and configuring VS Code for a generic Python project.\nThe primary steps covered here are:"
-  },
-  {
-    "objectID": "use/overview.html#install-vs-code",
-    "href": "use/overview.html#install-vs-code",
-    "title": "Getting Started with VS Code",
-    "section": "Install VS Code",
-    "text": "Install VS Code\nVS Code can be installed simply from the product’s main download page. Simply select the operating system for your machine and run the installer: - Accept the license agreement; - Accept default options for install destination; - Accept default Start Menu location; - Under “Select Additional Tasks”, keep the default selections and also select the two options to add “Open with Code” actions to Windows Explorer menus (this will make life easier), and (optionally) create a desktop icon;"
-  },
-  {
-    "objectID": "use/overview.html#install-extensions",
-    "href": "use/overview.html#install-extensions",
-    "title": "Getting Started with VS Code",
-    "section": "Install Extensions",
-    "text": "Install Extensions\nOnce VS Code is installed on your machine, open it and navigate on the left menu bar to the Extensions blade (it looks like a Tetris game), or use the keyboard shortcut (Ctrl+Shift+X) instead. Use the search bar to find the desired extensions:\n\nPython - This extension (make sure to select the extension from Microsoft, not others) includes Intellisense (autocompletion, syntax checking), tools for linting (Pylint, Flake8), debugging, code formatting (black, autopep), refactoring, integrated unit tests (unittest, pytest) and more. Join 100M other users taking advantage of these features."
-  },
-  {
-    "objectID": "use/overview.html#basic-usage",
-    "href": "use/overview.html#basic-usage",
-    "title": "Getting Started with VS Code",
-    "section": "Basic Usage",
-    "text": "Basic Usage\nIn this section we’ll walk through some basic usage steps, setting up some additional features along the way.\n\nOnce VS Code is installed, use the Accounts icon at the bottom left of the window to log in to your GitHub account through VS Code, following any multi-factor authentication steps indicated.\nClone the Python project starter template repo from GitHub:\n\nUse the Ctrl+Shift+P shortcut to activate the command pallette (use Esc to exit it as needed)\nSearch the pallette for ‘Terminal’ and select the Terminal: Create New Terminal option that appears\nNote that the terminal “opens” as a vertical split in the VS Code window - it is always accessible (or minimizable) by sliding this vertical separator up or down as desired\ncd and/or mkdir to a desired directory\nEnter the command git clone git@github.com:gcoyle83/quarto-example-site.git, and enter authentication information as required (add SSH keygen instructions)\n\nWhen you open a VS Code window directly from a folder, the root of the project Explorer is at that folder; it is often helpful when working on multiple projects to open separate VS Code windows for each project, using the “Open with VS Code” action accessible from the right-click context menu in Windows Explorer.\n\nNavigate to the repo location in Windows Explorer\nRight click on the repo directory\nSelect “Open with Code”, and note the root directory\nIn VS Code, select the source control blade (or use the strange Ctrl+Shift+G followed with g shortcut)\nExpand the Branches section of the blade and note that one branch (main) is shown\nExpand the Remotes section of the blade and then expand the origin to show all available branches\nHover over the website branch and note the several icons that appear on the right side\nHover over the first of these icons and note that it says “Switch to branch” - this is the same as the git switch command, but it also fetches it if it’s not currently in the local\nSelect the switch icon to switch to the website branch; enter a local branch name or use the remote name to track locally (just press enter)\nObserve that the branch is added to the Branches blade, and has a check-mark next to it\nHover over the check-mark; observe that the popup information is the same as would be returned by git status on the command line\nReturn to the Explorer blade (Ctrl+Shift+E), and note that the files shown now reflect the Quarto website content\nOpen the about.qmd file, and add your name to the list in the Development Group Members section of the page, then save your changes (Ctrl+S)\nReturn to the source control blade (Ctrl+Shift+G + g)\nExpand the source control section, and note that there is a change pending\nHover over the “Changes” list, and then over each of the three resulting icons - they are stash, discard and stage command buttons - note also that the individual files are listed with similar buttons to revert or stage changes file-by-file; use the “Stage All Changes” button to stage your changes\nType a useful commit message and press the green Commit button\nClick the green Sync Changes button to sync with the remote GitHub repo"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "The Python Development Group is an informal team of associates from various practices that make regular use of Python to improve and/or accelerate their workflows. Recognizing that we all face similar issues in selecting and learning about various “pieces” of the Python development process, we elected to work together toward pooling our collective experience through regular (monthly) discussion of best practices and generation of documentation around what works (or notably doesn’t work) well for Python projects.\n\nDevelopment Group Members\nThe Python Dev Group members are voluntary and unofficial. If you are interested in joining the group to participate in these discussions, please reach out to a current team member and let them know.\n\nGreg Coyle\n\n\n\n\n\n Back to top"
+    "text": "This section details steps taken to deploy the Dash application as an Azure Web App.\n\nStep 1: Create a GitHub repository and upload your app\nThe project repo was started from the python_starter_template repo and modifications to the starter files were made as needed. All GitHub workflows were moved to the ignore directory to prevent execution, with the exception of the render_docs.yml file, which builds the documentation locally from the .qmd files.\n\n\nStep 2: Create a virtual environment\nThe initial project design was implemented with a virtual environment created by specifying initial dependencies in the requirements.txt file. A local installation of Python 3.11 was used to create the .venv for the project with the command:\nC:\\Users\\&lt;user&gt;\\AppData\\Local\\Programs\\Python\\Python312\\python -m venv .venv\nDependencies were then added with the steps:\n.venv/Scripts/Activate.ps1\npip install -r requirements.txt\nAdditional packages were added as needed via pip install and updated in the requirements.txt file for future reference. After initial development was completed, the development requirements.txt file was moved to the dev folder and environment dependencies were written to a new file with pip freeze &gt; requirements.txt to preserve the exact package versions.\n\nThe .gitignore file in the template contains several Python specific ignore patterns, including the .venv directory so that the environment is not committed to the repo.\n\n\n\nStep 3: Additional .gitignore patterns\nThe following patterns were added:\n# Repo specific\ndev/**\n# SWMM artifacts\nswmm_files/*.out\nswmm_files/*.rpt\nswmm_files/*.db\nswmm_files/*.chi\nswmm_files/*.thm\nswmm_files/*.ini\nswmm_files/*.inp\n!swmm_files/DemoModel.inp\nThe dev folder holds the development notebooks for Jupyter-based iteration over the Dash app. The swmm_files folder holds the initial SWMM input file and ignores any additional files created during runtime, though the final code also cleans up these artifacts to prevent persistence.\n\nNote that future iterations may require logging SWMM artifacts to mlflow registries.\n\n\n\nStep 4: Dash app modification for Azure\nPer the above reference, the following change was made to the development code after transferring notebook development content to app.py:\ndash_app = dash.Dash(__name__)\napp = dash_app.server\n\n# update all callbacks to use @dash_app.callback, as well\n\n\nStep 5: Configure and create Azure Web App\nIn the Azure Portal, under App Services, a new Web App resource was created with the following settings (only non-default options are listed):\n\nBasics tab:\n\nSubscription: Digital Water Machine Learning DEV\nResource Group: rg-digitalwater-machinelearning-DEV\nInstance name: mwe-swmm\nPublish: code\nRuntime Stack: Python 3.11\nOperating System: Linux\nRegion: East US\nPricing:\n\nLinux Plan: (new) ASP-rgdwdev-mwe-swmm\nPricing Plan: Free F1 (Shared infrastructure)\n\n\nAll other tabs left with default values\n\nThen select Review and Create. And Create. The deployment procedure takes a few minutes.\n\nMuch of the above steps may be automated in the future - see Azure ARM docs to figure out how.\n\n\n\nStep 6: Deploy app code from GitHub repository\nWhen deployment is complete, select “Go to resource” from the deployment page (this is where you end up after the final Create command from above) to navigate to the App Service page:\n\nBefore proceeding, in another tab, be sure you are authenticated to GitHub.\n\n\nSource: GitHub\nSelect the Authenticate button to authenticate\nFill out Organization, Repository (Select the name of the repository), and Branch:\n\nOrganization: gcoyle83\nRepository: swmm-dash-mlflow\nBranch: main\n\nAccept the default “Add a workflow” option to create the CI/CD workflow file on your behalf\nThe build options should be as previously specified\nAccept the default “Basic Authentication” setting\n\nSave these changes, and (optionally) select the Logs tab to view the progress of deployment. Once complete, select the Overview blade from the left-side nav to return to the main page of the app.\n\n\nStep 7: Use tha app\nSelect the URL that contains the address of the web app. In this instance, the app was deployed to https://mwe-swmm.azurewebsites.net/.\n\n\n\n\n Back to top"
   }
 ]

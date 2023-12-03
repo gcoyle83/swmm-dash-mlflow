@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>SWMM-Dash-MLFlow - Implementation Overview</title>
+<title>SWMM-Dash-MLFlow - Azure Web App Deployment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -146,7 +180,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#app-deployment" id="toc-app-deployment" class="nav-link active" data-scroll-target="#app-deployment">App Deployment</a></li>
+  <li><a href="#step-1-create-a-github-repository-and-upload-your-app" id="toc-step-1-create-a-github-repository-and-upload-your-app" class="nav-link active" data-scroll-target="#step-1-create-a-github-repository-and-upload-your-app">Step 1: Create a GitHub repository and upload your app</a></li>
+  <li><a href="#step-2-create-a-virtual-environment" id="toc-step-2-create-a-virtual-environment" class="nav-link" data-scroll-target="#step-2-create-a-virtual-environment">Step 2: Create a virtual environment</a></li>
+  <li><a href="#step-3-additional-.gitignore-patterns" id="toc-step-3-additional-.gitignore-patterns" class="nav-link" data-scroll-target="#step-3-additional-.gitignore-patterns">Step 3: Additional <code>.gitignore</code> patterns</a></li>
+  <li><a href="#step-4-dash-app-modification-for-azure" id="toc-step-4-dash-app-modification-for-azure" class="nav-link" data-scroll-target="#step-4-dash-app-modification-for-azure">Step 4: Dash app modification for Azure</a></li>
+  <li><a href="#step-5-configure-and-create-azure-web-app" id="toc-step-5-configure-and-create-azure-web-app" class="nav-link" data-scroll-target="#step-5-configure-and-create-azure-web-app">Step 5: Configure and create Azure Web App</a></li>
+  <li><a href="#step-6-deploy-app-code-from-github-repository" id="toc-step-6-deploy-app-code-from-github-repository" class="nav-link" data-scroll-target="#step-6-deploy-app-code-from-github-repository">Step 6: Deploy app code from GitHub repository</a></li>
+  <li><a href="#step-7-use-tha-app" id="toc-step-7-use-tha-app" class="nav-link" data-scroll-target="#step-7-use-tha-app">Step 7: Use tha app</a></li>
   </ul>
 <div class="toc-actions"><div class="action-links"><p><a href="https://github.com/gcoyle83/swmm-dash-mlflow/issues" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -155,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Implementation Overview</h1>
+<h1 class="title">Azure Web App Deployment</h1>
 </div>
 
 
@@ -170,10 +210,100 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="app-deployment" class="level2">
-<h2 class="anchored" data-anchor-id="app-deployment">App Deployment</h2>
-<p>Deployment follows the guidance at this <a href="https://resonance-analytics.com/blog/deploying-dash-apps-on-azure#:~:text=Deploying%20Dash%20Apps%20on%20Azure%20with%20Windows%201,Sign%20up%20on%20Azure%20and%20Deploy%20your%20app">blog post</a> previously used successfully.</p>
-<p>For full description of the deployment steps taken, see the deployment notes <a href="../implement/azure_deployment.html">here</a>.</p>
+<p>This section details steps taken to deploy the Dash application as an Azure Web App.</p>
+<section id="step-1-create-a-github-repository-and-upload-your-app" class="level1">
+<h1>Step 1: Create a GitHub repository and upload your app</h1>
+<p>The project repo was started from the <code>python_starter_template</code> repo and modifications to the starter files were made as needed. All GitHub workflows were moved to the <code>ignore</code> directory to prevent execution, with the exception of the <code>render_docs.yml</code> file, which builds the documentation locally from the <code>.qmd</code> files.</p>
+</section>
+<section id="step-2-create-a-virtual-environment" class="level1">
+<h1>Step 2: Create a virtual environment</h1>
+<p>The initial project design was implemented with a virtual environment created by specifying initial dependencies in the <code>requirements.txt</code> file. A local installation of Python 3.11 was used to create the <code>.venv</code> for the project with the command:</p>
+<pre><code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Python\Python312\python -m venv .venv</code></pre>
+<p>Dependencies were then added with the steps:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span><span class="fu">venv</span><span class="op">/</span>Scripts<span class="op">/</span>Activate<span class="op">.</span><span class="fu">ps1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pip install <span class="op">-</span>r requirements<span class="op">.</span><span class="fu">txt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Additional packages were added as needed via <code>pip install</code> and updated in the <code>requirements.txt</code> file for future reference. After initial development was completed, the development <code>requirements.txt</code> file was moved to the <code>dev</code> folder and environment dependencies were written to a new file with <code>pip freeze &gt; requirements.txt</code> to preserve the exact package versions.</p>
+<blockquote class="blockquote">
+<p>The <code>.gitignore</code> file in the template contains several Python specific ignore patterns, including the <code>.venv</code> directory so that the environment is not committed to the repo.</p>
+</blockquote>
+</section>
+<section id="step-3-additional-.gitignore-patterns" class="level1">
+<h1>Step 3: Additional <code>.gitignore</code> patterns</h1>
+<p>The following patterns were added:</p>
+<pre><code># Repo specific
+dev/**
+# SWMM artifacts
+swmm_files/*.out
+swmm_files/*.rpt
+swmm_files/*.db
+swmm_files/*.chi
+swmm_files/*.thm
+swmm_files/*.ini
+swmm_files/*.inp
+!swmm_files/DemoModel.inp</code></pre>
+<p>The <code>dev</code> folder holds the development notebooks for Jupyter-based iteration over the Dash app. The <code>swmm_files</code> folder holds the initial SWMM input file and ignores any additional files created during runtime, though the final code also cleans up these artifacts to prevent persistence.</p>
+<blockquote class="blockquote">
+<p>Note that future iterations may require logging SWMM artifacts to <code>mlflow</code> registries.</p>
+</blockquote>
+</section>
+<section id="step-4-dash-app-modification-for-azure" class="level1">
+<h1>Step 4: Dash app modification for Azure</h1>
+<p>Per the above reference, the following change was made to the development code after transferring notebook development content to <code>app.py</code>:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dash_app <span class="op">=</span> dash.Dash(<span class="va">__name__</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> dash_app.server</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># update all callbacks to use @dash_app.callback, as well</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-5-configure-and-create-azure-web-app" class="level1">
+<h1>Step 5: Configure and create Azure Web App</h1>
+<p>In the Azure Portal, under App Services, a new Web App resource was created with the following settings (only non-default options are listed):</p>
+<ul>
+<li>Basics tab:
+<ul>
+<li>Subscription: Digital Water Machine Learning DEV</li>
+<li>Resource Group: rg-digitalwater-machinelearning-DEV</li>
+<li>Instance name: mwe-swmm</li>
+<li>Publish: code</li>
+<li>Runtime Stack: Python 3.11</li>
+<li>Operating System: Linux</li>
+<li>Region: East US</li>
+<li>Pricing:
+<ul>
+<li>Linux Plan: (new) ASP-rgdwdev-mwe-swmm</li>
+<li>Pricing Plan: Free F1 (Shared infrastructure)</li>
+</ul></li>
+</ul></li>
+<li>All other tabs left with default values</li>
+</ul>
+<p>Then select Review and Create. And Create. The deployment procedure takes a few minutes.</p>
+<blockquote class="blockquote">
+<p>Much of the above steps may be automated in the future - see Azure <a href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/">ARM docs</a> to figure out how.</p>
+</blockquote>
+</section>
+<section id="step-6-deploy-app-code-from-github-repository" class="level1">
+<h1>Step 6: Deploy app code from GitHub repository</h1>
+<p>When deployment is complete, select “Go to resource” from the deployment page (this is where you end up after the final Create command from above) to navigate to the App Service page:</p>
+<blockquote class="blockquote">
+<p>Before proceeding, in another tab, be sure you are authenticated to GitHub.</p>
+</blockquote>
+<ul>
+<li>Source: GitHub</li>
+<li>Select the Authenticate button to authenticate</li>
+<li>Fill out Organization, Repository (Select the name of the repository), and Branch:
+<ul>
+<li>Organization: gcoyle83</li>
+<li>Repository: swmm-dash-mlflow</li>
+<li>Branch: main</li>
+</ul></li>
+<li>Accept the default “Add a workflow” option to create the CI/CD workflow file on your behalf</li>
+<li>The build options should be as previously specified</li>
+<li>Accept the default “Basic Authentication” setting</li>
+</ul>
+<p>Save these changes, and (optionally) select the Logs tab to view the progress of deployment. Once complete, select the Overview blade from the left-side nav to return to the main page of the app.</p>
+</section>
+<section id="step-7-use-tha-app" class="level1">
+<h1>Step 7: Use tha app</h1>
+<p>Select the URL that contains the address of the web app. In this instance, the app was deployed to https://mwe-swmm.azurewebsites.net/.</p>
 
 
 </section>
