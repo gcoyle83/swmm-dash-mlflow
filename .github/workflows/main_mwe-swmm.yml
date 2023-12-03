@@ -6,8 +6,9 @@ name: Build and deploy Python app to Azure Web App - mwe-swmm
 
 on:
   push:
-    branches:
-      - main
+    branches: main
+    paths-ignore: docs/**
+
   workflow_dispatch:
 
 jobs:
