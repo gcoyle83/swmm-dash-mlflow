@@ -1,0 +1,93 @@
+---
+title: "Azure Web App Deployment"
+---
+
+This section details steps taken to deploy the Dash application as an Azure Web App.
+
+# Step 1: Create a GitHub repository and upload your app
+The project repo was started from the `python_starter_template` repo and modifications to the starter files were made as needed. All GitHub workflows were moved to the `ignore` directory to prevent execution, with the exception of the `render_docs.yml` file, which builds the documentation locally from the `.qmd` files.
+
+# Step 2: Create a virtual environment
+The initial project design was implemented with a virtual environment created by specifying initial dependencies in the `requirements.txt` file. A local installation of Python 3.11 was used to create the `.venv` for the project with the command:
+```
+C:\Users\<user>\AppData\Local\Programs\Python\Python312\python -m venv .venv
+```
+Dependencies were then added with the steps:
+```Powershell
+.venv/Scripts/Activate.ps1
+pip install -r requirements.txt
+```
+Additional packages were added as needed via `pip install` and updated in the `requirements.txt` file for future reference. After initial development was completed, the development `requirements.txt` file was moved to the `dev` folder and environment dependencies were written to a new file with `pip freeze > requirements.txt` to preserve the exact package versions. 
+
+>The `.gitignore` file in the template contains several Python specific ignore patterns, including the `.venv` directory so that the environment is not committed to the repo.
+
+# Step 3: Additional `.gitignore` patterns
+The following patterns were added:
+
+```
+# Repo specific
+dev/**
+# SWMM artifacts
+swmm_files/*.out
+swmm_files/*.rpt
+swmm_files/*.db
+swmm_files/*.chi
+swmm_files/*.thm
+swmm_files/*.ini
+swmm_files/*.inp
+!swmm_files/DemoModel.inp
+```
+
+The `dev` folder holds the development notebooks for Jupyter-based iteration over the Dash app. The `swmm_files` folder holds the initial SWMM input file and ignores any additional files created during runtime, though the final code also cleans up these artifacts to prevent persistence.
+
+>Note that future iterations may require logging SWMM artifacts to `mlflow` registries.
+
+# Step 4: Dash app modification for Azure
+Per the above reference, the following change was made to the development code after transferring notebook development content to `app.py`:
+
+```python
+dash_app = dash.Dash(__name__)
+app = dash_app.server
+
+# update all callbacks to use @dash_app.callback, as well
+```
+
+# Step 5: Configure and create Azure Web App
+In the Azure Portal, under App Services, a new Web App resource was created with the following settings (only non-default options are listed):
+
+-  Basics tab:
+    -  Subscription: Digital Water Machine Learning DEV
+    -  Resource Group: rg-digitalwater-machinelearning-DEV
+    -  Instance name: mwe-swmm
+    -  Publish: code
+    -  Runtime Stack: Python 3.11
+    -  Operating System: Linux
+    -  Region: East US
+    -  Pricing:
+        -  Linux Plan: (new) ASP-rgdwdev-mwe-swmm
+        -  Pricing Plan: Free F1 (Shared infrastructure) 
+-  All other tabs left with default values
+
+Then select Review and Create. And Create. The deployment procedure takes a few minutes.
+
+>Much of the above steps may be automated in the future - see Azure [ARM docs](https://learn.microsoft.com/en-us/azure/azure-resource-manager/) to figure out how.
+
+# Step 6: Deploy app code from GitHub repository
+When deployment is complete, select "Go to resource" from the deployment page (this is where you end up after the final Create command from above) to navigate to the App Service page: 
+
+> Before proceeding, in another tab, be sure you are authenticated to GitHub.
+
+-  Source: GitHub
+-  Select the Authenticate button to authenticate
+-  Fill out Organization, Repository (Select the name of the repository), and Branch:
+    -  Organization: gcoyle83
+    -  Repository: swmm-dash-mlflow
+    -  Branch: main
+-  Accept the default "Add a workflow" option to create the CI/CD workflow file on your behalf
+-  The build options should be as previously specified
+-  Accept the default "Basic Authentication" setting
+
+Save these changes, and (optionally) select the Logs tab to view the progress of deployment. Once complete, select the Overview blade from the left-side nav to return to the main page of the app. 
+
+# Step 7: Use tha app
+Select the URL that contains the address of the web app. In this instance, the app was deployed to https://mwe-swmm.azurewebsites.net/.

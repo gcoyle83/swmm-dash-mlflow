@@ -4,3 +4,5 @@ title: "Implementation Overview"
 
 ## App Deployment
 Deployment follows the guidance at this [blog post](https://resonance-analytics.com/blog/deploying-dash-apps-on-azure#:~:text=Deploying%20Dash%20Apps%20on%20Azure%20with%20Windows%201,Sign%20up%20on%20Azure%20and%20Deploy%20your%20app) previously used successfully.
+
+For full description of the deployment steps taken, see the deployment notes [here](azure_deployment.qmd).
