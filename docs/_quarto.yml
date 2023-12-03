@@ -21,6 +21,10 @@ website:
         menu:
           - href: use/overview.qmd
             text: Usage Overview
+      - text: "Examples"
+        menu:
+          - href: examples/overview.qmd
+            text: Examples Overview
   back-to-top-navigation: true
   reader-mode: true
   # repo-url: https://github.com/gcoyle83/python-starter-template

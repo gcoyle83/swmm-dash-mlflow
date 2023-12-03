@@ -1,0 +1,12 @@
+---
+title: "Examples"
+---
+
+This section presents the various examples developed during iteration over development of the app. The `./example{n}` sub-directory pattern is used to store the `requirements.txt` file for each example as well as the `app.py` file and the development notebook used to test `app.py` locally before deployment to Azure. Any SWMM input files or other dependencies are included in this folder so that it is reproducible by swapping it's contents out to the project root directory (and removing the active version). All examples should work in the present location for local exploration in a Jupyter notebook. 
+
+# Example 1
+The first example followed that of McDonnel's PySWMM [Espresso Machine]() tutorial, using only the "no controls" option. This was combined with the random rainfall perturbation function developed in earlier demonstration efforts in using EPA SWMM from Dash. The result is an application that allows running the SWMM input file when a button is clicked to generate new random rainfall. The graphical display shows the "baseline" system response alongside the new response given altered rainfall inputs. Additionally, radio buttons were added to allow user selection of the node at which flooding or inflow is reported in the graphical display. 
+
+# Example 2
+This example builds from Example 1, adding the "simple control" logic of McDonnel's "Espresso Machine" example. The user selects control rule parameters using a set of sliders with valid ranges in [0, 1] to represent the percent open position of orifices used to control flow through the system. Execution of the new selections are tied to a "Run Control Scenario" button. All scenario runs are compared against a new baseline "no control" option, to indicate whether the porposed control settings are an improvement over no controls at all. As in Example 1, an optional button to generate new random rainfall perturbation exists, but is no longer run by default.  
+

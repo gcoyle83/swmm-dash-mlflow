@@ -1,6 +1,6 @@
 
-# Python Starter Template
-This repo provides a basic starter template for best practices developing and testing *unpackaged* Python code. Emphasis on that last point - this is **not** a Python packaging template. This template is for use with generic Python projects that want to take advantage of automated tools to improve the development process, including: 
+# SWMM, Dash and MLFlow
+This repo aims to provide a basic starter template, minimum working examples and best practices for developing and testing Dash applications that leverage SWMM and MLFlow for hydroinformatics use cases.
 
 -  Virtual environment management with `venv`
 -  Automated code review with `Pylint` and `Black`
@@ -9,146 +9,30 @@ This repo provides a basic starter template for best practices developing and te
 -  Automated project documentation rendering with Quarto
 
 :::{.callout-note}
-Many of the concepts implemented here are directly from the excellent Duke University Coursera Course by Noah Gift: [*Cloud Computing Foundations*](https://coursera.org/share/0e44a583040b010e6aeb674febbac00e)
+Many of the concepts implemented here are directly from the examples in the [PySWMM library](https://github.com/pyswmm/pyswmm).
 :::
 
-# Basic Usage
+# Overview
+This documentation is set up to provide active development of documentation along new coded features. This is achieved by following a simple development iteration loop:
 
-:::{.callout-warning}
-This repo is a *template*. DO NOT clone it and then attempt to modify it (this will fail by design).
-:::
+1. Develop new features in a Jupyter notebook located in the `dev` directory. All development files should be kept local to the feature folder.
+1. When ready to deploy a new feature, copy the contents of the feature folder to the repository root, including (minimally): `requirements.txt`, a `swmm_files` directory with relevant SWMM artifacts, `app.py` containing the code for the new Dash app, updated `README.md` explaining the particular features of the new app release.
+1. A new app version will be automatically deployed to the Azure web app service *only* when changes to the above root-level files are made. That is, the CI/CD workflow for deployment to Azure is set to *ignore* pushes to the `docs` directory, and the `dev` directory is not committed to the repo (it is ignored in `.gitignore`).
+1. Once the app version is deployed and validated as an Azure Web App, a new example sub-folder should be created to store the development files in the documentation (this is how the successive development iterations are tracked - see the [Examples Overview page](examples/overview.qmd) for details).
 
-## Create a new repo from this template
-If you would like to simply use this repo as a template for starting a new project (in contrast to contributing to this template to improve it), take the following steps: 
+This style of development supports active iteration over simple examples to increasingly complex (and meaningful) applications.
 
-(@) To start a new GitHub repo from this template, at the top of this repo's home page select the "Use this template" option.
+# Documentation
+The rest of this documentation is organized as follows:
 
-![Click the green button](assets/img/index_useTemplate.PNG)
+## Design
+The [design section](design/overview.qmd) of this documentation provides detailed notes on the overall design considerations.
 
-(@) Specify an organization and a name for your new project, and then create the repo. If you are creating the new repo in your personal GitHub account, select Public if you want to make use of GitHub Pages for your project (private Pages are only available on BC org repos). On the new repo's page, copy the cloning address from the "Code" dropdown menu (indicated below as `<repo-url>`). Use HTTPS or SSH depending on your local setup for Git. If you have never used Git and need further instructions, see the [Git Primer]() tutorial before continuing.
+## Implement
+The [implementation section](implement/overview.qmd) provides notes on implementing the active design.
 
-(@) On your machine, open a Bash (or other) terminal in a directory of your preference and execute the command `git clone <repo-url> <local-directory-name>`. Replace `<repo-url>` with the URL copied from the repo to clone it, and replace `<local-directory-name>` with whatever you'd like to name the folder on your machine. 
+## Use
+The [usage section](use/overview.qmd) provides notes on using the applications in practical contexts.
 
-:::{.callout-note}
-If you running `git clone ...` from a folder you've already created that you'd like to clone into, just use `.` as the `<local-directory-name>`
-:::
-
-The remainder of these basic usage instructions assume that all suggested actions are taken from this new repository.
-
-## Update repo settings for GitHub Pages
-If you'd like to use the GitHub Pages template for your project, you need to make a few changes in your repo settings:
-
--  Navigate to the repo-level settings, and on the left nav panel, select "Pages".
--  Under "Build and Deployment", click the "Source" dropdown and select "GitHub Actions". This setting enables use of the GitHub Workflow to publish the project Page using GitHub Actions.
-
-... Instructions in progress...
-
-## Create virtual environment
-The next step is to build the virtual environment for this project locally, as follows:
-
-1. First, note that the project "requires" (by way of declaration right here), use of Python 3.12; since `venv` uses whatever Python interpreter calls it as the base, each user needs to be sure to call `venv` with Python 3.12 as the active interpreter. To do so:
-
-    -  Install Python 3.12 from [python.org](https://www.python.org/downloads/)
-    -  Keep all defaults when running the installer, noting the installation location should be at `C:\Users\<user>\AppData\Local\Programs\Python\Python312`
-    -  Close the installer app when it is finished
-    -  Open a Bash (or Powershell) terminal
-    -  Enter command `C:\Users\<user>\AppData\Local\Programs\Python\Python312\python -m venv .venv` to create a virtual environment in a subdirectory named `.venv`
-        -  Running the `python -m venv` command from the directory where Python 3.12 is stored forces use of the 3.12 interpreter as base
-        -  Creating the virtual environment in the `.venv` directory follows standard practice and ensures that these files are ignored by git (as indicated in the `.gitignore` file in the "Environments" section) 
-    -  Open the `.venv` folder and then the `pyvenv.cfg` file; note that the Python `version` is 3.12.x
-
-1. Next, add the required packages to this virtual environment:
-
-    -  First, activate the environment by running 
-        -  (PowerShell) `.venv/Scripts/Activate.ps1`
-        -  (Bash) `.venv/Scripts/activate`
-    -  Install requirements with `pip install -r requirements.txt`
-
-## Automatic linting and formatting with `Pylint` and `black`
-It is important but tedious to follow formatting standards. Automated tools have been developed by those who agree with this statement (starting at Bell Labs almost 50 years ago). A [linter](https://en.wikipedia.org/wiki/Lint_(software)) is a tool for static code analysis used to flag programming errors, bugs, stylistic errors and suspicious constructs. [Pylint](https://pylint.readthedocs.io/en/stable/) is one such tool that is widely used for Python to enforce the [PEP8 Style Guide](https://peps.python.org/pep-0008/). [Black](https://black.readthedocs.io/en/stable/the_black_code_style/index.html) is another, and these two tools are [often used in parallel](https://pylint.readthedocs.io/en/latest/?badge=latest#advised-linters-alongside-pylint) to get the most benefit. The following steps will help you understand how to use these tools to improve your Python projects:
-
-1. Use `Pylint` to analyze the code in the `src` folder:
-
-    ```
-    pylint src
-    ```
-
-    This command will analyze all `*.py` files in the `src` folder. Note that the output to the terminal includes recommendations to include docstrings for modules and functions, and another recommendation to improve efficiency of the `python_version` function in `version.py`. 
-    
-    None of these recommendations are compliance issues, and they can be suppressed. Note the overall score is 4.62/10. Suppressing these recommendations with the `--disable` flag:
-
-    ```
-    pylint --disable=R,C src
-    ``` 
-
-    > Note, `--disable=R,C` indicates that 'refactor' and 'convention' messages should be disabled
-    The resulting output should now have no suggestions, and the overall rating is 10/10
-
-    Finally, only errors can be reported by passing the `--errors-only` flag
-
-    ```
-    pylint --errors-only src
-    ```
-
-    Note the rating is no longer returned. Try introducing an error into a module and run again to see what happens.
-
-1. Now use `black` to autoformat your Python code to PEP8 compliance. Black is "an opinionated strict subset of PEP8". While `Pylint` can be used to generate a set of recommendations or flag errors, `Black` can be used to automatically enforce formatting conventions:
-
-    -  First, open `hello.py` and paste the following function into the end of the module:
-
-        ```
-        def my_func(x):
-            """
-            This is my function it returns the product of `x` and `a`
-            """
-            a = [
-                1,2,3
-            ]
-            return a*x
-        ```
-
-    -  Now run the command `black src`, and open `hello.py` again. Note the input has been reformatted to:
-
-        ```
-        def my_func(x):
-            """
-            This is my function it returns the product of `x` and `a`
-            """
-            a = [1, 2, 3]
-            return a * x
-        ```
-        
-By using first `Black` and then `Pylint` in succession, much of the tedium of code review can be avoided and errors can be caught and corrected **before committing**.
-
-## Unit tests with `Pytest`
-After static review, the code can be dynamically tested. The [`Pytest`](https://docs.pytest.org/en/7.4.x/index.html) package is designed to facilitate testing of Python projects from basic unit tests to full evaluation of functional requirements for complex projects. Here it is used to enable and demonstrate basic unit testing.
-
-1. Run the test suite in the `tests` directory with the command `python -m pytest -vv tests`. 
-1. Note the results (percent complete and pass/fail status) printed to the terminal after each functional unit test.
-
-## Remote testing
-Testing on the development system is a fundamental first step, but Python projects should also be regularly tested on remote systems to ensure that they can be reproduced "from scratch" without issue. The GitHub Workflow file `checks.yml` enables an automated workflow to run the above steps (build Python environment, format and lint code, run tests) on a remote GitHub "runner". To learn more about authoring and editing workflows in GitHub, visit the [GitHub Workflows]() tutorial.
-
-## Trunk-based Development, Branch Protections and Continuous Integration
-*Trunk-based development* is a development practice meant to support change management. As a project's codebase changes over time, it is important to control the scope of any single set of changes, so that they can be thoroughly tested before merging and so that they can be *rolled back* in the event of unforeseen consequences. The concept is relatively simple: 
-
--  The `main` branch of a repo represents "production-ready" code, i.e., the best currently available implementation of the project's goals
--  Any new feature (a new function, a better version of a function, etc) is implemented in a `feature` branch, which begins as an exact copy of the current state of the `main` branch
--  When a new feature is developed, it is tested and then merged via Pull Request. A Pull Request (PR) is a request from one branch (`feature` branch) to another branch (`main`) requesting that `main` pull the changes from the `feature` branch and commit them. Using PRs that are generated after fully testing the new feature is the standard way of preventing any untested changes from polluting the production/main branch (*aside* - the 'production' branch need not always be named `main`: for instance, several branches may host production versions of code serving different project requirements - e.g., a "baseline" version may be served from `main` while other scenarios are served from `scenario_n` branches). 
-
-*Branch protections* are a set of configuration options that can be specified in GitHub for each branch of the repository. This feature enables best practices like preventing changes to the repo's main branch except by an approved Pull Request originating from another branch, which helps prevent untested changes from creeping into your production code. When working on projects with more than a few trusted collaborators, it becomes very important to implement branch protections and continuous integration practices. 
-
-## Documentation
-Another critical component of any well-developed Python project is, of course, documentation. For this template, the documentation is *written/edited* in the `docs` directory (by humans) and is then automatically rendered into a website stored in the `build-docs` folder during the fully automated build process. More details on this procedure are included in the [documentation tools](tools/documentation.qmd) page.
-
-# Older boilerplate
-This is a collaborative site for continual development of organizational guidance and reusable templates for Python projects. Similar sites for R, Julia and other useful languages will probably be helpful, but are beyond the present scope of this site. The primary objectives for development of this site were outlined at the September 2023 "hackathon" in Andover, MA, including:
-
--  Installation and setup instructions for basic development tools (Anaconda/Miniconda, VS Code, et cetera)
--  Recommendations for standard scaffolding of Python project repositories in GitHub, including best practices for coding standards, formatting, unit testing and project documentation
--  Links to/recommendations for "learning paths" to help all interested colleagues develop software/coding skills
-
-To learn more about the collaborators on the effort, see the [About page](about.qmd).
-
->Website developed using Quarto.
->To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+## Examples
+The [examples section](examples/overview.qmd) documents the iterations over this application from MWE to more meaningful instances (as discussed above).
