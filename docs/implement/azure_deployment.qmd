@@ -89,5 +89,5 @@ When deployment is complete, select "Go to resource" from the deployment page (t
 
 Save these changes, and (optionally) select the Logs tab to view the progress of deployment. Once complete, select the Overview blade from the left-side nav to return to the main page of the app. 
 
-# Step 7: Use tha app
-Select the URL that contains the address of the web app. In this instance, the app was deployed to https://mwe-swmm.azurewebsites.net/.
+# Step 7: Use the app
+Select the URL that contains the address of the web app. In this instance, the app was deployed to [https://mwe-swmm.azurewebsites.net/](https://mwe-swmm.azurewebsites.net/).
