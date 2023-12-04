@@ -124,6 +124,17 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-examples" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Examples</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-examples">    
+        <li>
+    <a class="dropdown-item" href="./examples/overview.html" rel="" target="">
+ <span class="dropdown-text">Examples Overview</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -146,19 +157,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#python-starter-template" id="toc-python-starter-template" class="nav-link active" data-scroll-target="#python-starter-template">Python Starter Template</a></li>
-  <li><a href="#basic-usage" id="toc-basic-usage" class="nav-link" data-scroll-target="#basic-usage">Basic Usage</a>
+  <li><a href="#swmm-dash-and-mlflow" id="toc-swmm-dash-and-mlflow" class="nav-link active" data-scroll-target="#swmm-dash-and-mlflow">SWMM, Dash and MLFlow</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a>
   <ul class="collapse">
-  <li><a href="#create-a-new-repo-from-this-template" id="toc-create-a-new-repo-from-this-template" class="nav-link" data-scroll-target="#create-a-new-repo-from-this-template">Create a new repo from this template</a></li>
-  <li><a href="#update-repo-settings-for-github-pages" id="toc-update-repo-settings-for-github-pages" class="nav-link" data-scroll-target="#update-repo-settings-for-github-pages">Update repo settings for GitHub Pages</a></li>
-  <li><a href="#create-virtual-environment" id="toc-create-virtual-environment" class="nav-link" data-scroll-target="#create-virtual-environment">Create virtual environment</a></li>
-  <li><a href="#automatic-linting-and-formatting-with-pylint-and-black" id="toc-automatic-linting-and-formatting-with-pylint-and-black" class="nav-link" data-scroll-target="#automatic-linting-and-formatting-with-pylint-and-black">Automatic linting and formatting with <code>Pylint</code> and <code>black</code></a></li>
-  <li><a href="#unit-tests-with-pytest" id="toc-unit-tests-with-pytest" class="nav-link" data-scroll-target="#unit-tests-with-pytest">Unit tests with <code>Pytest</code></a></li>
-  <li><a href="#remote-testing" id="toc-remote-testing" class="nav-link" data-scroll-target="#remote-testing">Remote testing</a></li>
-  <li><a href="#trunk-based-development-branch-protections-and-continuous-integration" id="toc-trunk-based-development-branch-protections-and-continuous-integration" class="nav-link" data-scroll-target="#trunk-based-development-branch-protections-and-continuous-integration">Trunk-based Development, Branch Protections and Continuous Integration</a></li>
-  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  <li><a href="#design" id="toc-design" class="nav-link" data-scroll-target="#design">Design</a></li>
+  <li><a href="#implement" id="toc-implement" class="nav-link" data-scroll-target="#implement">Implement</a></li>
+  <li><a href="#use" id="toc-use" class="nav-link" data-scroll-target="#use">Use</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
   </ul></li>
-  <li><a href="#older-boilerplate" id="toc-older-boilerplate" class="nav-link" data-scroll-target="#older-boilerplate">Older boilerplate</a></li>
   </ul>
 <div class="toc-actions"><div class="action-links"><p><a href="https://github.com/gcoyle83/swmm-dash-mlflow/issues" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -167,9 +174,9 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<section id="python-starter-template" class="level1">
-<h1>Python Starter Template</h1>
-<p>This repo provides a basic starter template for best practices developing and testing <em>unpackaged</em> Python code. Emphasis on that last point - this is <strong>not</strong> a Python packaging template. This template is for use with generic Python projects that want to take advantage of automated tools to improve the development process, including:</p>
+<section id="swmm-dash-and-mlflow" class="level1">
+<h1>SWMM, Dash and MLFlow</h1>
+<p>This repo aims to provide a basic starter template, minimum working examples and best practices for developing and testing Dash applications that leverage SWMM and MLFlow for hydroinformatics use cases.</p>
 <ul>
 <li>Virtual environment management with <code>venv</code></li>
 <li>Automated code review with <code>Pylint</code> and <code>Black</code></li>
@@ -187,171 +194,42 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Many of the concepts implemented here are directly from the excellent Duke University Coursera Course by Noah Gift: <a href="https://coursera.org/share/0e44a583040b010e6aeb674febbac00e"><em>Cloud Computing Foundations</em></a></p>
+<p>Many of the concepts implemented here are directly from the examples in the <a href="https://github.com/pyswmm/pyswmm">PySWMM library</a>.</p>
 </div>
 </div>
 </section>
-<section id="basic-usage" class="level1">
-<h1>Basic Usage</h1>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This repo is a <em>template</em>. DO NOT clone it and then attempt to modify it (this will fail by design).</p>
-</div>
-</div>
-<section id="create-a-new-repo-from-this-template" class="level2">
-<h2 class="anchored" data-anchor-id="create-a-new-repo-from-this-template">Create a new repo from this template</h2>
-<p>If you would like to simply use this repo as a template for starting a new project (in contrast to contributing to this template to improve it), take the following steps:</p>
-<ol class="example" type="1">
-<li>To start a new GitHub repo from this template, at the top of this repo’s home page select the “Use this template” option.</li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/img/index_useTemplate.PNG" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Click the green button</figcaption>
-</figure>
-</div>
-<ol start="2" class="example" type="1">
-<li><p>Specify an organization and a name for your new project, and then create the repo. If you are creating the new repo in your personal GitHub account, select Public if you want to make use of GitHub Pages for your project (private Pages are only available on BC org repos). On the new repo’s page, copy the cloning address from the “Code” dropdown menu (indicated below as <code>&lt;repo-url&gt;</code>). Use HTTPS or SSH depending on your local setup for Git. If you have never used Git and need further instructions, see the <a href="">Git Primer</a> tutorial before continuing.</p></li>
-<li><p>On your machine, open a Bash (or other) terminal in a directory of your preference and execute the command <code>git clone &lt;repo-url&gt; &lt;local-directory-name&gt;</code>. Replace <code>&lt;repo-url&gt;</code> with the URL copied from the repo to clone it, and replace <code>&lt;local-directory-name&gt;</code> with whatever you’d like to name the folder on your machine.</p></li>
-</ol>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you running <code>git clone ...</code> from a folder you’ve already created that you’d like to clone into, just use <code>.</code> as the <code>&lt;local-directory-name&gt;</code></p>
-</div>
-</div>
-<p>The remainder of these basic usage instructions assume that all suggested actions are taken from this new repository.</p>
-</section>
-<section id="update-repo-settings-for-github-pages" class="level2">
-<h2 class="anchored" data-anchor-id="update-repo-settings-for-github-pages">Update repo settings for GitHub Pages</h2>
-<p>If you’d like to use the GitHub Pages template for your project, you need to make a few changes in your repo settings:</p>
-<ul>
-<li>Navigate to the repo-level settings, and on the left nav panel, select “Pages”.</li>
-<li>Under “Build and Deployment”, click the “Source” dropdown and select “GitHub Actions”. This setting enables use of the GitHub Workflow to publish the project Page using GitHub Actions.</li>
-</ul>
-<p>… Instructions in progress…</p>
-</section>
-<section id="create-virtual-environment" class="level2">
-<h2 class="anchored" data-anchor-id="create-virtual-environment">Create virtual environment</h2>
-<p>The next step is to build the virtual environment for this project locally, as follows:</p>
+<section id="overview" class="level1">
+<h1>Overview</h1>
+<p>This documentation is set up to provide active development of documentation along new coded features. This is achieved by following a simple development iteration loop:</p>
 <ol type="1">
-<li><p>First, note that the project “requires” (by way of declaration right here), use of Python 3.12; since <code>venv</code> uses whatever Python interpreter calls it as the base, each user needs to be sure to call <code>venv</code> with Python 3.12 as the active interpreter. To do so:</p>
-<ul>
-<li>Install Python 3.12 from <a href="https://www.python.org/downloads/">python.org</a></li>
-<li>Keep all defaults when running the installer, noting the installation location should be at <code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Python\Python312</code></li>
-<li>Close the installer app when it is finished</li>
-<li>Open a Bash (or Powershell) terminal</li>
-<li>Enter command <code>C:\Users\&lt;user&gt;\AppData\Local\Programs\Python\Python312\python -m venv .venv</code> to create a virtual environment in a subdirectory named <code>.venv</code>
-<ul>
-<li>Running the <code>python -m venv</code> command from the directory where Python 3.12 is stored forces use of the 3.12 interpreter as base</li>
-<li>Creating the virtual environment in the <code>.venv</code> directory follows standard practice and ensures that these files are ignored by git (as indicated in the <code>.gitignore</code> file in the “Environments” section)</li>
-</ul></li>
-<li>Open the <code>.venv</code> folder and then the <code>pyvenv.cfg</code> file; note that the Python <code>version</code> is 3.12.x</li>
-</ul></li>
-<li><p>Next, add the required packages to this virtual environment:</p>
-<ul>
-<li>First, activate the environment by running
-<ul>
-<li>(PowerShell) <code>.venv/Scripts/Activate.ps1</code></li>
-<li>(Bash) <code>.venv/Scripts/activate</code></li>
-</ul></li>
-<li>Install requirements with <code>pip install -r requirements.txt</code></li>
-</ul></li>
+<li>Develop new features in a Jupyter notebook located in the <code>dev</code> directory. All development files should be kept local to the feature folder.</li>
+<li>When ready to deploy a new feature, copy the contents of the feature folder to the repository root, including (minimally): <code>requirements.txt</code>, a <code>swmm_files</code> directory with relevant SWMM artifacts, <code>app.py</code> containing the code for the new Dash app, updated <code>README.md</code> explaining the particular features of the new app release.</li>
+<li>A new app version will be automatically deployed to the Azure web app service <em>only</em> when changes to the above root-level files are made. That is, the CI/CD workflow for deployment to Azure is set to <em>ignore</em> pushes to the <code>docs</code> directory, and the <code>dev</code> directory is not committed to the repo (it is ignored in <code>.gitignore</code>).</li>
+<li>Once the app version is deployed and validated as an Azure Web App, a new example sub-folder should be created to store the development files in the documentation (this is how the successive development iterations are tracked - see the <a href="./examples/overview.html">Examples Overview page</a> for details).</li>
 </ol>
+<p>This style of development supports active iteration over simple examples to increasingly complex (and meaningful) applications.</p>
 </section>
-<section id="automatic-linting-and-formatting-with-pylint-and-black" class="level2">
-<h2 class="anchored" data-anchor-id="automatic-linting-and-formatting-with-pylint-and-black">Automatic linting and formatting with <code>Pylint</code> and <code>black</code></h2>
-<p>It is important but tedious to follow formatting standards. Automated tools have been developed by those who agree with this statement (starting at Bell Labs almost 50 years ago). A <a href="https://en.wikipedia.org/wiki/Lint_(software)">linter</a> is a tool for static code analysis used to flag programming errors, bugs, stylistic errors and suspicious constructs. <a href="https://pylint.readthedocs.io/en/stable/">Pylint</a> is one such tool that is widely used for Python to enforce the <a href="https://peps.python.org/pep-0008/">PEP8 Style Guide</a>. <a href="https://black.readthedocs.io/en/stable/the_black_code_style/index.html">Black</a> is another, and these two tools are <a href="https://pylint.readthedocs.io/en/latest/?badge=latest#advised-linters-alongside-pylint">often used in parallel</a> to get the most benefit. The following steps will help you understand how to use these tools to improve your Python projects:</p>
-<ol type="1">
-<li><p>Use <code>Pylint</code> to analyze the code in the <code>src</code> folder:</p>
-<pre><code>pylint src</code></pre>
-<p>This command will analyze all <code>*.py</code> files in the <code>src</code> folder. Note that the output to the terminal includes recommendations to include docstrings for modules and functions, and another recommendation to improve efficiency of the <code>python_version</code> function in <code>version.py</code>.</p>
-<p>None of these recommendations are compliance issues, and they can be suppressed. Note the overall score is 4.62/10. Suppressing these recommendations with the <code>--disable</code> flag:</p>
-<pre><code>pylint --disable=R,C src</code></pre>
-<blockquote class="blockquote">
-<p>Note, <code>--disable=R,C</code> indicates that ‘refactor’ and ‘convention’ messages should be disabled The resulting output should now have no suggestions, and the overall rating is 10/10</p>
-</blockquote>
-<p>Finally, only errors can be reported by passing the <code>--errors-only</code> flag</p>
-<pre><code>pylint --errors-only src</code></pre>
-<p>Note the rating is no longer returned. Try introducing an error into a module and run again to see what happens.</p></li>
-<li><p>Now use <code>black</code> to autoformat your Python code to PEP8 compliance. Black is “an opinionated strict subset of PEP8”. While <code>Pylint</code> can be used to generate a set of recommendations or flag errors, <code>Black</code> can be used to automatically enforce formatting conventions:</p>
-<ul>
-<li><p>First, open <code>hello.py</code> and paste the following function into the end of the module:</p>
-<pre><code>def my_func(x):
-    """
-    This is my function it returns the product of `x` and `a`
-    """
-    a = [
-        1,2,3
-    ]
-    return a*x</code></pre></li>
-<li><p>Now run the command <code>black src</code>, and open <code>hello.py</code> again. Note the input has been reformatted to:</p>
-<pre><code>def my_func(x):
-    """
-    This is my function it returns the product of `x` and `a`
-    """
-    a = [1, 2, 3]
-    return a * x</code></pre></li>
-</ul></li>
-</ol>
-<p>By using first <code>Black</code> and then <code>Pylint</code> in succession, much of the tedium of code review can be avoided and errors can be caught and corrected <strong>before committing</strong>.</p>
+<section id="documentation" class="level1">
+<h1>Documentation</h1>
+<p>The rest of this documentation is organized as follows:</p>
+<section id="design" class="level2">
+<h2 class="anchored" data-anchor-id="design">Design</h2>
+<p>The <a href="./design/overview.html">design section</a> of this documentation provides detailed notes on the overall design considerations.</p>
 </section>
-<section id="unit-tests-with-pytest" class="level2">
-<h2 class="anchored" data-anchor-id="unit-tests-with-pytest">Unit tests with <code>Pytest</code></h2>
-<p>After static review, the code can be dynamically tested. The <a href="https://docs.pytest.org/en/7.4.x/index.html"><code>Pytest</code></a> package is designed to facilitate testing of Python projects from basic unit tests to full evaluation of functional requirements for complex projects. Here it is used to enable and demonstrate basic unit testing.</p>
-<ol type="1">
-<li>Run the test suite in the <code>tests</code> directory with the command <code>python -m pytest -vv tests</code>.</li>
-<li>Note the results (percent complete and pass/fail status) printed to the terminal after each functional unit test.</li>
-</ol>
+<section id="implement" class="level2">
+<h2 class="anchored" data-anchor-id="implement">Implement</h2>
+<p>The <a href="./implement/overview.html">implementation section</a> provides notes on implementing the active design.</p>
 </section>
-<section id="remote-testing" class="level2">
-<h2 class="anchored" data-anchor-id="remote-testing">Remote testing</h2>
-<p>Testing on the development system is a fundamental first step, but Python projects should also be regularly tested on remote systems to ensure that they can be reproduced “from scratch” without issue. The GitHub Workflow file <code>checks.yml</code> enables an automated workflow to run the above steps (build Python environment, format and lint code, run tests) on a remote GitHub “runner”. To learn more about authoring and editing workflows in GitHub, visit the <a href="">GitHub Workflows</a> tutorial.</p>
+<section id="use" class="level2">
+<h2 class="anchored" data-anchor-id="use">Use</h2>
+<p>The <a href="./use/overview.html">usage section</a> provides notes on using the applications in practical contexts.</p>
 </section>
-<section id="trunk-based-development-branch-protections-and-continuous-integration" class="level2">
-<h2 class="anchored" data-anchor-id="trunk-based-development-branch-protections-and-continuous-integration">Trunk-based Development, Branch Protections and Continuous Integration</h2>
-<p><em>Trunk-based development</em> is a development practice meant to support change management. As a project’s codebase changes over time, it is important to control the scope of any single set of changes, so that they can be thoroughly tested before merging and so that they can be <em>rolled back</em> in the event of unforeseen consequences. The concept is relatively simple:</p>
-<ul>
-<li>The <code>main</code> branch of a repo represents “production-ready” code, i.e., the best currently available implementation of the project’s goals</li>
-<li>Any new feature (a new function, a better version of a function, etc) is implemented in a <code>feature</code> branch, which begins as an exact copy of the current state of the <code>main</code> branch</li>
-<li>When a new feature is developed, it is tested and then merged via Pull Request. A Pull Request (PR) is a request from one branch (<code>feature</code> branch) to another branch (<code>main</code>) requesting that <code>main</code> pull the changes from the <code>feature</code> branch and commit them. Using PRs that are generated after fully testing the new feature is the standard way of preventing any untested changes from polluting the production/main branch (<em>aside</em> - the ‘production’ branch need not always be named <code>main</code>: for instance, several branches may host production versions of code serving different project requirements - e.g., a “baseline” version may be served from <code>main</code> while other scenarios are served from <code>scenario_n</code> branches).</li>
-</ul>
-<p><em>Branch protections</em> are a set of configuration options that can be specified in GitHub for each branch of the repository. This feature enables best practices like preventing changes to the repo’s main branch except by an approved Pull Request originating from another branch, which helps prevent untested changes from creeping into your production code. When working on projects with more than a few trusted collaborators, it becomes very important to implement branch protections and continuous integration practices.</p>
-</section>
-<section id="documentation" class="level2">
-<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
-<p>Another critical component of any well-developed Python project is, of course, documentation. For this template, the documentation is <em>written/edited</em> in the <code>docs</code> directory (by humans) and is then automatically rendered into a website stored in the <code>build-docs</code> folder during the fully automated build process. More details on this procedure are included in the <a href="tools/documentation.qmd">documentation tools</a> page.</p>
-</section>
-</section>
-<section id="older-boilerplate" class="level1">
-<h1>Older boilerplate</h1>
-<p>This is a collaborative site for continual development of organizational guidance and reusable templates for Python projects. Similar sites for R, Julia and other useful languages will probably be helpful, but are beyond the present scope of this site. The primary objectives for development of this site were outlined at the September 2023 “hackathon” in Andover, MA, including:</p>
-<ul>
-<li>Installation and setup instructions for basic development tools (Anaconda/Miniconda, VS Code, et cetera)</li>
-<li>Recommendations for standard scaffolding of Python project repositories in GitHub, including best practices for coding standards, formatting, unit testing and project documentation</li>
-<li>Links to/recommendations for “learning paths” to help all interested colleagues develop software/coding skills</li>
-</ul>
-<p>To learn more about the collaborators on the effort, see the <a href="./about.html">About page</a>.</p>
-<blockquote class="blockquote">
-<p>Website developed using Quarto. To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-</blockquote>
+<section id="examples" class="level2">
+<h2 class="anchored" data-anchor-id="examples">Examples</h2>
+<p>The <a href="./examples/overview.html">examples section</a> documents the iterations over this application from MWE to more meaningful instances (as discussed above).</p>
 
 
+</section>
 </section>
 
 <a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
