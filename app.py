@@ -8,7 +8,7 @@ import swmmio
 import random
 import numpy as np
 # custom elements
-from controls import controls, off_canvas
+from controls import controls
 from components import header, tabs
 from utils import (
     update_flows_figure,
@@ -46,7 +46,6 @@ dash_app.layout = html.Div(
     [
         # create storage for browser memory
         dcc.Store(id='swmm-output'),
-        off_canvas,
         dbc_components
     ],
     className="dbc"
