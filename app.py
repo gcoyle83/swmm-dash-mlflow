@@ -53,9 +53,11 @@ dash_app.layout = html.Div(
 
 # Define callback to run simulation and update graph
 @dash_app.callback(
-    [
+    [# @app.callback(Output("loading-flows", "children"))
+        # Output("loading-output-1", "children"),
         Output('swmm-output', 'data'),
-        Output('flows-container','children', allow_duplicate=True),
+        # Output('flows-container','children', allow_duplicate=True),
+        Output("loading-flows",'children',allow_duplicate=True),
         Output('profile-container','children')
     ],
     Input('run-button','n_clicks'),
