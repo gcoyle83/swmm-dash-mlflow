@@ -98,7 +98,8 @@ def run_swmm(n_clicks, rain, orifice1, orifice2, orifice3, plot_nodes):
 # Define callback to update graph when node selection changes
 @dash_app.callback(
     [
-        Output('flows-container','children', allow_duplicate=True),
+        # Output('flows-container','children', allow_duplicate=True),
+        Output("loading-flows",'children', allow_duplicate=True)
     ],
     Input('nodes-dropdown','value'),
     State('swmm-output', 'data'),
