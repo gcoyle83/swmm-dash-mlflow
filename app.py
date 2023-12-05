@@ -29,9 +29,21 @@ dash_app.title="MWE SWMM Dashboard"
 app = dash_app.server # added for azure deployment
 
 # app layout
+with open("about.md") as file:
+    about_md = file.read()
+
 dbc_components = dbc.Container(
     [
         header,
+        # html.Div(
+        #     html.Div([dcc.Markdown(about_md, className="markdown")]),
+        #     style={"margin": "10px"},
+        # ),
+        html.Div(
+            # html.Div([dcc.Markdown(about_md, className="markdown")]),
+            id='demo-explanation',
+            style={"margin": "10px"},
+        ),
         dbc.Row(
             [
                 dbc.Col([controls], width=4),
@@ -42,10 +54,12 @@ dbc_components = dbc.Container(
     fluid=True,
     className="dbc"
 )
+
 dash_app.layout = html.Div(
     [
         # create storage for browser memory
         dcc.Store(id='swmm-output'),
+        # html.Div(html.Div(id="demo-explanation", children=[])),
         dbc_components
     ],
     className="dbc"
@@ -107,6 +121,40 @@ def run_swmm(n_clicks, rain, orifice1, orifice2, orifice3, plot_nodes):
 def update_nodes_plotted(plot_nodes, swmm_output):
     flows = update_flows_figure(swmm_output, plot_nodes)
     return [flows]
+
+# Define callback to open About page
+# @dash_app.callback(
+#     [
+#         # Output('flows-container','children', allow_duplicate=True),
+#         Output("loading-flows",'children', allow_duplicate=True)
+#     ],
+#     Input('nodes-dropdown','value'),
+#     State('swmm-output', 'data'),
+# )
+# def update_nodes_plotted(plot_nodes, swmm_output):
+#     flows = update_flows_figure(swmm_output, plot_nodes)
+#     return [flows]
+
+@dash_app.callback(
+    [Output("demo-explanation", "children"), Output("about-button", "children")],
+    [Input("about-button", "n_clicks")],
+)
+def about(n_clicks):
+    if n_clicks is None:
+        n_clicks = 0
+    if (n_clicks % 2) == 1:
+        n_clicks += 1
+        return (
+            html.Div(
+                className="container",
+                style={"margin-bottom": "30px"},
+                children=[html.Div([dcc.Markdown(about_md, className="markdown")])],
+            ),
+            "Close",
+        )
+
+    n_clicks += 1
+    return (html.Div(), "About")
 
 # Run app and display result inline in the notebook
 # dash_app.run_server(debug=True)

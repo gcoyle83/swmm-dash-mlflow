@@ -17,12 +17,12 @@ app_title = html.H4(
     "SWMM Operations Dashboard", 
     className="bg-primary text-white p-2 mb-2 text-center"
 )
-learn_button = html.Div(
+about_btn = html.Div(
             [
                 dbc.Button(
-                    "Learn More",
-                    href="https://plot.ly/dash/pricing/",
-                    id="learn-button",
+                    "About",
+                    href="about.md",
+                    id="about-button",
                     n_clicks=0
                 )
             ],
@@ -31,7 +31,7 @@ header = dbc.Row(
             [
                 dbc.Col([theme_button], width=2, className="bg-primary text-white p-2 mb-2 text-center"),
                 dbc.Col([app_title], width=8, className="bg-primary text-white p-2 mb-2 text-center"),
-                dbc.Col([learn_button], width=2, className="bg-primary text-white p-2 mb-2 text-center")
+                dbc.Col([about_btn], width=2, className="bg-primary text-white p-2 mb-2 text-center")
             ]
         )
 
@@ -72,7 +72,7 @@ tab0 = dbc.Tab(
         loading_flows,
         tab0_output
     ],
-    label="Simualted Flows"
+    label="Simulated Flows"
 )
 # tab1 = dbc.Tab([html.Div(id="map-container",className="mb-4"), tab1_output], label="System Map")
 tab2 = dbc.Tab([loading_profile, tab2_output], label="System Profile")
