@@ -27,6 +27,7 @@ about_btn = html.Div(
                 )
             ],
         )
+
 header = dbc.Row(
             [
                 dbc.Col([theme_button], width=2, className="bg-primary text-white p-2 mb-2 text-center"),

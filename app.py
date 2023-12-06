@@ -1,6 +1,7 @@
 from dash import Dash
 from dash import dcc
 from dash import html
+# from dash import callback_context
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
 # quant imports
@@ -9,7 +10,7 @@ import random
 import numpy as np
 # custom elements
 from controls import controls
-from components import header, tabs
+from components import header, tabs, about_btn
 from utils import (
     update_flows_figure,
     run_no_control,
@@ -21,7 +22,8 @@ from utils import (
 dbc_css = "https://cdn.jsdelivr.net/gh/AnnMarieW/dash-bootstrap-templates/dbc.min.css"
 dash_app = Dash(
     __name__,
-    prevent_initial_callbacks=True,
+    prevent_initial_callbacks='initial_duplicate',
+    # prevent_initial_call='initial_duplicate',
     external_stylesheets=[dbc.themes.BOOTSTRAP, dbc_css],
     meta_tags=[{"name": "viewport", "content": "width=device-width"}]
 )
@@ -35,10 +37,6 @@ with open("about.md") as file:
 dbc_components = dbc.Container(
     [
         header,
-        # html.Div(
-        #     html.Div([dcc.Markdown(about_md, className="markdown")]),
-        #     style={"margin": "10px"},
-        # ),
         html.Div(
             # html.Div([dcc.Markdown(about_md, className="markdown")]),
             id='demo-explanation',
@@ -59,7 +57,6 @@ dash_app.layout = html.Div(
     [
         # create storage for browser memory
         dcc.Store(id='swmm-output'),
-        # html.Div(html.Div(id="demo-explanation", children=[])),
         dbc_components
     ],
     className="dbc"
@@ -122,19 +119,7 @@ def update_nodes_plotted(plot_nodes, swmm_output):
     flows = update_flows_figure(swmm_output, plot_nodes)
     return [flows]
 
-# Define callback to open About page
-# @dash_app.callback(
-#     [
-#         # Output('flows-container','children', allow_duplicate=True),
-#         Output("loading-flows",'children', allow_duplicate=True)
-#     ],
-#     Input('nodes-dropdown','value'),
-#     State('swmm-output', 'data'),
-# )
-# def update_nodes_plotted(plot_nodes, swmm_output):
-#     flows = update_flows_figure(swmm_output, plot_nodes)
-#     return [flows]
-
+# Define callback for About page (works)
 @dash_app.callback(
     [Output("demo-explanation", "children"), Output("about-button", "children")],
     [Input("about-button", "n_clicks")],
@@ -148,7 +133,9 @@ def about(n_clicks):
             html.Div(
                 className="container",
                 style={"margin-bottom": "30px"},
-                children=[html.Div([dcc.Markdown(about_md, className="markdown")])],
+                children=[
+                    html.Div([dcc.Markdown(about_md, mathjax=True, className="markdown")])
+                ],
             ),
             "Close",
         )

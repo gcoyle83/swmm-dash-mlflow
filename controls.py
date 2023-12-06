@@ -8,14 +8,14 @@ sliders =  html.Div(
                     html.H5("Orifice Controls"),
                     "Drag the sliders to adjust the percent-open fraction of the orifice controls.",
                     html.Hr(), # horizontal line
-                    "Percent open if depth at Junction 2 exceeds 4.5 feet:",
+                    "Wet-Weather State: J2 > 4.5 feet:",
                     dcc.Slider(min=0.0, max=1.0, step=0.1, value=1.0, id='orifice1',className="dcc_control"),
                     # html.Hr(), # horizontal line
-                    "Percent open if depth at Junction 2 less than 4.0 feet:",
-                    dcc.Slider(min=0.0, max=1.0, step=0.1, value=0.25, id='orifice2',className="dcc_control"),
+                    "Dewatering State: J2 < 4.0 feet:",
+                    dcc.Slider(min=0.0, max=1.0, step=0.1, value=0.7, id='orifice2',className="dcc_control"),
                     # html.Hr(), # horizontal line
-                    "Percent open if depth at Junction 2 less than 2.0 feet:",
-                    dcc.Slider(min=0.0, max=1.0, step=0.1, value=0.15, id='orifice3',className="dcc_control"),
+                    "Dry-weather State: J2 < 2.0 feet:",
+                    dcc.Slider(min=0.0, max=1.0, step=0.1, value=0.5, id='orifice3',className="dcc_control"),
                     # html.Hr(), # horizontal line
                 ],
                 id='slider_div',
