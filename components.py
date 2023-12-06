@@ -21,7 +21,6 @@ about_btn = html.Div(
             [
                 dbc.Button(
                     "About",
-                    href="about.md",
                     id="about-button",
                     n_clicks=0
                 )
