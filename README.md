@@ -1,5 +1,12 @@
 # SWMM-Dash-MLflow
-This repo provides a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end, logs run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout.
+This repo provides a minimum working example for an Azure web app (using Dash) that runs SWMM in the backend based on a constrained set of user inputs at the front end. 
+
+Features include:
+-  controls card for selecting system control settings and running sim
+-  simulation flows tab
+-  system profile (HGL) tab
+Future work: 
+-  log run info to an MLFlow tracking URI in an Azure ML workspace, and displays select outputs to the Dash layout.
 
 Components:
 
